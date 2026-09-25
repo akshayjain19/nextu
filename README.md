@@ -1,24 +1,16 @@
-# NextU Studio
+# NextU
 
-Premium product & technology studio marketing site—Next.js, Tailwind v4, Framer Motion, Cobe globe.
+Expert discovery lead-generation site — WhatsApp handoff, editorial landing experience.
 
-## Development
+## Setup
 
 ```bash
 npm install
+cp .env.example .env.local
 npm run dev
 ```
 
 ## Environment
 
-| Variable | Description |
-|----------|-------------|
-| `NEXT_PUBLIC_SITE_URL` | Canonical URL |
-| `NEXT_PUBLIC_CONTACT_EMAIL` | Contact email for mailto links |
-
-## Content
-
-- Projects: `src/data/projects.ts`
-- Services: `src/data/services.ts`
-- Insights: `src/data/insights.ts`
-- Visuals: `public/visuals/` (replace with real screenshots)
+- `NEXT_PUBLIC_SITE_URL`
+- `NEXT_PUBLIC_WHATSAPP_NUMBER` (no `+`, e.g. `919876543210`)

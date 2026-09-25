@@ -1,3 +1,4 @@
+import { faqItems } from "@/data/faq";
 import { siteConfig } from "@/lib/config";
 
 export function organizationJsonLd() {
@@ -19,3 +20,23 @@ export function websiteJsonLd() {
     description: siteConfig.description,
   };
 }
+
+export function faqJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  };
+}
+
+export const expertCategorySlugs = [
+  "doctors",
+  "dermatologists",
+  "therapists",
+  "digital-marketers",
+  "pilots",
+] as const;

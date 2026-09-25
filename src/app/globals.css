@@ -1,45 +1,51 @@
 @import "tailwindcss";
 
 :root {
-  --canvas: #eef2f5;
-  --canvas-warm: #e5edf3;
+  --canvas: #f4f8fc;
+  --canvas-sky: #e8f2fc;
   --surface: #ffffff;
-  --surface-muted: #f4f7fa;
-  --ink: #171616;
-  --ink-muted: #606263;
-  --ink-soft: #9da1a4;
-  --accent: #5a7d9a;
-  --accent-strong: #3d5f7c;
-  --dusty-blue: #b2c8da;
-  --border: rgba(23, 22, 22, 0.1);
-  --border-strong: rgba(23, 22, 22, 0.16);
+  --ink: #0f172a;
+  --ink-muted: #475569;
+  --ink-soft: #64748b;
+  --navy: #0c1a3a;
+  --cobalt: #2563eb;
+  --cobalt-deep: #1d4ed8;
+  --sky: #93c5fd;
+  --border: rgba(15, 23, 42, 0.08);
+  --shadow-soft: 0 24px 60px -20px rgba(12, 26, 58, 0.18);
 }
 
 @theme inline {
-  --color-border-strong: var(--border-strong);
   --color-canvas: var(--canvas);
-  --color-canvas-warm: var(--canvas-warm);
+  --color-canvas-sky: var(--canvas-sky);
   --color-surface: var(--surface);
-  --color-surface-muted: var(--surface-muted);
   --color-ink: var(--ink);
   --color-ink-muted: var(--ink-muted);
   --color-ink-soft: var(--ink-soft);
-  --color-accent: var(--accent);
-  --color-accent-strong: var(--accent-strong);
-  --color-dusty: var(--dusty-blue);
+  --color-navy: var(--navy);
+  --color-cobalt: var(--cobalt);
+  --color-cobalt-deep: var(--cobalt-deep);
+  --color-sky: var(--sky);
   --color-border: var(--border);
   --font-sans: var(--font-display);
-  --font-mono: var(--font-geist-mono);
+  --animate-accordion-down: accordion-down 0.28s ease-out;
+  --animate-accordion-up: accordion-up 0.28s ease-out;
 }
 
-html {
-  scroll-behavior: smooth;
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
 }
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+
+html { scroll-behavior: smooth; }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+  html { scroll-behavior: auto; }
 }
 
 body {
@@ -49,17 +55,14 @@ body {
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--dusty-blue) 55%, white);
+  background: color-mix(in srgb, var(--sky) 50%, white);
 }
 
-.editorial-grid {
-  background-image:
-    linear-gradient(to right, color-mix(in srgb, var(--border) 40%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in srgb, var(--border) 40%, transparent) 1px, transparent 1px);
-  background-size: 72px 72px;
-  mask-image: linear-gradient(to bottom, black, transparent 85%);
-}
+.text-balance { text-wrap: balance; }
 
-.text-balance {
-  text-wrap: balance;
+.hero-blob {
+  background:
+    radial-gradient(ellipse 70% 60% at 20% 20%, rgba(147, 197, 253, 0.45), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 80% 10%, rgba(37, 99, 235, 0.12), transparent 50%),
+    linear-gradient(180deg, var(--canvas-sky), var(--canvas));
 }

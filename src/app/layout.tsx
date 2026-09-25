@@ -1,5 +1,5 @@
-import { AgencyFooter } from "@/components/agency/footer";
-import { AgencyNavbar } from "@/components/agency/navbar";
+import { NextUFooter } from "@/components/nextu/footer";
+import { NextUNavbar } from "@/components/nextu/navbar";
 import { JsonLd } from "@/components/json-ld";
 import { Providers } from "@/components/providers";
 import { siteConfig } from "@/lib/config";
@@ -11,36 +11,35 @@ import "./globals.css";
 const display = Plus_Jakarta_Sans({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — Product & Technology Studio`,
+    default: `${siteConfig.name} — Find the Right Expert`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   keywords: [
-    "product development studio",
-    "technology agency",
-    "web development",
-    "mobile app development",
-    "AI software",
-    "UI UX design",
+    "find an expert",
+    "find the right expert",
+    "connect with experts",
+    "expert network",
+    "find professionals online",
   ],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "en_IN",
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} — Product & Technology Studio`,
+    title: `${siteConfig.name} — Find the Right Expert`,
     description: siteConfig.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — Product & Technology Studio`,
+    title: `${siteConfig.name} — Find the Right Expert`,
     description: siteConfig.description,
   },
   robots: { index: true, follow: true },
@@ -49,12 +48,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${display.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-canvas text-ink">
+      <body className="min-h-full flex flex-col">
         <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
         <Providers>
-          <AgencyNavbar />
+          <NextUNavbar />
           <div className="flex-1">{children}</div>
-          <AgencyFooter />
+          <NextUFooter />
         </Providers>
       </body>
     </html>

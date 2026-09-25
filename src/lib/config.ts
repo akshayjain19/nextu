@@ -1,25 +1,23 @@
 export const siteConfig = {
   name: "NextU",
-  studioDescriptor: "Product & technology studio",
-  tagline: "We design and build digital products with clarity, craft, and momentum.",
+  tagline: "Tell us what you need. We'll find the right expert.",
   description:
-    "NextU is an independent product and technology studio. We partner with teams to ship web apps, mobile experiences, AI workflows, and the platforms behind them.",
+    "NextU connects you with professionals across healthcare, technology, business, and specialized fields. Tell us what you need and we'll find the right expert.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://nextu.in",
-  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@nextu.in",
+  whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "919876543210",
+  stats: {
+    experts: "100+",
+    customers: "1,000+",
+  },
   social: {
     twitter: "#",
     linkedin: "#",
     instagram: "#",
-    github: "#",
   },
-  /** Replace with verified metrics when available — do not invent figures. */
-  metrics: [] as { label: string; value: string }[],
 } as const;
 
 export const navLinks = [
-  { href: "/work", label: "Work" },
-  { href: "/services", label: "Services" },
-  { href: "/about", label: "About" },
-  { href: "/insights", label: "Insights" },
-  { href: "/contact", label: "Contact" },
+  { href: "/#lead-form", label: "Find an Expert" },
+  { href: "/#how-it-works", label: "How It Works" },
+  { href: "/about", label: "About Us" },
 ] as const;

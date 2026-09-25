@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description: `Terms of service for ${siteConfig.name}.`,
+  description: `Terms for ${siteConfig.name}.`,
   alternates: { canonical: "/terms" },
 };
 
@@ -12,10 +12,8 @@ export default function TermsPage() {
   return (
     <main className="pt-28 pb-24">
       <Container className="max-w-3xl">
-        <h1 className="text-3xl font-semibold">Terms of Service</h1>
-        <p className="mt-6 leading-relaxed text-ink-muted">
-          Placeholder terms—replace with counsel-reviewed terms before launch.
-        </p>
+        <h1 className="text-3xl font-bold text-navy">Terms of Service</h1>
+        <p className="mt-6 text-ink-muted">Placeholder — publish counsel-reviewed terms before launch.</p>
       </Container>
     </main>
   );
