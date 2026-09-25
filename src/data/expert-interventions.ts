@@ -1,31 +1,77 @@
-import type { LucideIcon } from "lucide-react";
-import {
-  Apple,
-  Brain,
-  Dumbbell,
-  Mic2,
-  Palette,
-  Smartphone,
-  Sparkles,
-  Stethoscope,
-  Users,
-} from "lucide-react";
+export type ExpertSize = "feature" | "large" | "medium" | "compact";
 
 export type ExpertInterventionType = {
   id: string;
   label: string;
-  icon: LucideIcon;
+  descriptor: string;
+  size: ExpertSize;
+  /** Responsive width for editorial wall */
+  widthClass: string;
 };
 
 /** Official expert intervention examples — categories only, not individual profiles */
 export const expertInterventionTypes: ExpertInterventionType[] = [
-  { id: "public-speaking", label: "Public Speaking Coach", icon: Mic2 },
-  { id: "nutritionist", label: "Nutritionist", icon: Apple },
-  { id: "dermatologist", label: "Dermatologist & Hair Specialist", icon: Stethoscope },
-  { id: "fitness", label: "Fitness Coach", icon: Dumbbell },
-  { id: "career", label: "Career Coach", icon: Sparkles },
-  { id: "mental-health", label: "Mental Health Professional", icon: Brain },
-  { id: "image", label: "Image Consultant", icon: Palette },
-  { id: "digital-detox", label: "Digital Detox & Detachment Coach", icon: Smartphone },
-  { id: "communication", label: "Communication Trainer", icon: Users },
+  {
+    id: "public-speaking",
+    label: "Public Speaking Coach",
+    descriptor: "Communicate with confidence",
+    size: "large",
+    widthClass: "w-full sm:w-[calc(50%-0.5rem)] lg:w-[46%]",
+  },
+  {
+    id: "nutritionist",
+    label: "Nutritionist",
+    descriptor: "Nourish everyday habits",
+    size: "large",
+    widthClass: "w-full sm:w-[calc(50%-0.5rem)] lg:w-[46%]",
+  },
+  {
+    id: "career",
+    label: "Career Coach",
+    descriptor: "Direction & professional growth",
+    size: "feature",
+    widthClass: "w-full lg:w-[62%]",
+  },
+  {
+    id: "dermatologist",
+    label: "Dermatologist & Hair Specialist",
+    descriptor: "Skin & hair care",
+    size: "medium",
+    widthClass: "w-full sm:w-[calc(50%-0.5rem)] lg:w-[31%]",
+  },
+  {
+    id: "fitness",
+    label: "Fitness Coach",
+    descriptor: "Strength & movement",
+    size: "medium",
+    widthClass: "w-full sm:w-[calc(50%-0.5rem)] lg:w-[31%]",
+  },
+  {
+    id: "mental-health",
+    label: "Mental Health Professional",
+    descriptor: "Wellbeing & support",
+    size: "medium",
+    widthClass: "w-full sm:w-[calc(50%-0.5rem)] lg:w-[31%]",
+  },
+  {
+    id: "communication",
+    label: "Communication Trainer",
+    descriptor: "Clearer conversations",
+    size: "medium",
+    widthClass: "w-full lg:w-[72%]",
+  },
+  {
+    id: "image",
+    label: "Image Consultant",
+    descriptor: "Personal presence & style",
+    size: "compact",
+    widthClass: "w-full sm:w-[calc(50%-0.5rem)] lg:w-[24%]",
+  },
+  {
+    id: "digital-detox",
+    label: "Digital Detox & Detachment Coach",
+    descriptor: "Healthier tech boundaries",
+    size: "compact",
+    widthClass: "w-full sm:w-[calc(50%-0.5rem)] lg:w-[24%]",
+  },
 ];
