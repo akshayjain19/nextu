@@ -10,9 +10,7 @@ const transitionCopy =
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-function portraitAlt(_item: Testimonial) {
-  return "Placeholder lifestyle portrait for demo testimonial layout";
-}
+const PORTRAIT_ALT = "Placeholder lifestyle portrait for demo testimonial layout";
 
 function FeaturedTestimonial({ item }: { item: Testimonial }) {
   const reduceMotion = useReducedMotion();
@@ -39,7 +37,7 @@ function FeaturedTestimonial({ item }: { item: Testimonial }) {
           <TestimonialPortrait
             image={item.image}
             imagePosition={item.imagePosition}
-            alt={portraitAlt(item)}
+            alt={PORTRAIT_ALT}
             variant="featured"
           />
           <div
@@ -105,7 +103,7 @@ function SupportingTestimonial({
           <TestimonialPortrait
             image={item.image}
             imagePosition={item.imagePosition}
-            alt={portraitAlt(item)}
+            alt={PORTRAIT_ALT}
             variant="supporting"
             crop={index === 1 ? "organic" : "default"}
           />
@@ -138,7 +136,7 @@ function MobileTestimonialRow({ item, index }: { item: Testimonial; index: numbe
       <TestimonialPortrait
         image={item.image}
         imagePosition={item.imagePosition}
-        alt={portraitAlt(item)}
+        alt={PORTRAIT_ALT}
         variant="compact"
       />
       <div className="min-w-0 flex-1">
