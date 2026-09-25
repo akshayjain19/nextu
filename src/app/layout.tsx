@@ -4,6 +4,7 @@ import { JsonLd } from "@/components/json-ld";
 import { Providers } from "@/components/providers";
 import { brandAssets } from "@/lib/brand";
 import { siteConfig } from "@/lib/config";
+import { SITE_URL } from "@/lib/site-url";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
@@ -15,8 +16,10 @@ const display = Plus_Jakarta_Sans({
   weight: ["400", "500", "600", "700", "800"],
 });
 
+const metadataBaseUrl = siteConfig.url?.trim() || SITE_URL;
+
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: new URL(metadataBaseUrl),
   title: {
     default: `${siteConfig.name} — Life Design & Transformation`,
     template: `%s | ${siteConfig.name}`,
