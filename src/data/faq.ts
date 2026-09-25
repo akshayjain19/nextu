@@ -39,6 +39,6 @@ export const faqItems = [
     id: "contact",
     question: "How will NextU contact me?",
     answer:
-      "We typically follow up on the WhatsApp number you provide. Make sure it's correct so we can reach you about your request.",
+      "We follow up on WhatsApp—the same account you use when you send us your request. Make sure you're signed into the WhatsApp account you want us to reach.",
   },
 ];

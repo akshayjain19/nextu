@@ -3,31 +3,22 @@ import { siteConfig } from "@/lib/config";
 export type LeadFormPayload = {
   expertType: string;
   requirement: string;
-  name: string;
-  phone: string;
-  additionalInfo?: string;
+  name?: string;
 };
 
 export function formatWhatsAppMessage(data: LeadFormPayload): string {
-  const additional = data.additionalInfo?.trim()
-    ? data.additionalInfo.trim()
-    : "—";
+  const nameLine = data.name?.trim()
+    ? `\nMy name is ${data.name.trim()}.\n`
+    : "\n";
 
-  return `Hi NextU!
+  return `Hi NextU 👋
 
 I'm looking for a ${data.expertType}.
 
 I need help with:
 ${data.requirement.trim()}
-
-Name:
-${data.name.trim()}
-
-WhatsApp:
-${data.phone.trim()}
-
-Additional information:
-${additional}`;
+${nameLine}
+I'd like to connect with the right expert.`;
 }
 
 export function buildWhatsAppUrl(message: string): string {
@@ -35,5 +26,6 @@ export function buildWhatsAppUrl(message: string): string {
 }
 
 export function openWhatsAppChat(data: LeadFormPayload): void {
-  window.open(buildWhatsAppUrl(formatWhatsAppMessage(data)), "_blank", "noopener,noreferrer");
+  const url = buildWhatsAppUrl(formatWhatsAppMessage(data));
+  window.open(url, "_blank", "noopener,noreferrer");
 }
