@@ -1,14 +1,6 @@
-# NextU
+# NextU Studio
 
-Lead-generation website for [NextU](https://nextu.in)—tell us what you need, we'll find the right expert.
-
-## Stack
-
-- Next.js (App Router)
-- TypeScript
-- Tailwind CSS v4
-- Framer Motion
-- Radix UI primitives
+Premium product & technology studio marketing site—Next.js, Tailwind v4, Framer Motion, Cobe globe.
 
 ## Development
 
@@ -21,12 +13,12 @@ npm run dev
 
 | Variable | Description |
 |----------|-------------|
-| `NEXT_PUBLIC_SITE_URL` | Canonical site URL (default: `https://nextu.in`) |
-| `NEXT_PUBLIC_WHATSAPP_NUMBER` | WhatsApp number without `+` (e.g. `919876543210`) |
+| `NEXT_PUBLIC_SITE_URL` | Canonical URL |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | Contact email for mailto links |
 
-## Scripts
+## Content
 
-- `npm run dev` — development server
-- `npm run build` — production build
-- `npm run start` — start production server
-- `npm run lint` — ESLint
+- Projects: `src/data/projects.ts`
+- Services: `src/data/services.ts`
+- Insights: `src/data/insights.ts`
+- Visuals: `public/visuals/` (replace with real screenshots)

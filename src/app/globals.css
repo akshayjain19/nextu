@@ -1,55 +1,35 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
-  --card: #ffffff;
-  --card-foreground: #0f172a;
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
-  --border: #e2e8f0;
-  --primary: #2563eb;
-  --primary-foreground: #ffffff;
-  --destructive: #dc2626;
-  --navy: #0c1a3a;
-  --ring: #2563eb;
+  --canvas: #eef2f5;
+  --canvas-warm: #e5edf3;
+  --surface: #ffffff;
+  --surface-muted: #f4f7fa;
+  --ink: #171616;
+  --ink-muted: #606263;
+  --ink-soft: #9da1a4;
+  --accent: #5a7d9a;
+  --accent-strong: #3d5f7c;
+  --dusty-blue: #b2c8da;
+  --border: rgba(23, 22, 22, 0.1);
+  --border-strong: rgba(23, 22, 22, 0.16);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
+  --color-border-strong: var(--border-strong);
+  --color-canvas: var(--canvas);
+  --color-canvas-warm: var(--canvas-warm);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-soft: var(--ink-soft);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-dusty: var(--dusty-blue);
   --color-border: var(--border);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-destructive: var(--destructive);
-  --color-navy: var(--navy);
-  --color-ring: var(--ring);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-display);
   --font-mono: var(--font-geist-mono);
-  --animate-accordion-down: accordion-down 0.25s ease-out;
-  --animate-accordion-up: accordion-up 0.25s ease-out;
-}
-
-@keyframes accordion-down {
-  from {
-    height: 0;
-  }
-  to {
-    height: var(--radix-accordion-content-height);
-  }
-}
-
-@keyframes accordion-up {
-  from {
-    height: var(--radix-accordion-content-height);
-  }
-  to {
-    height: 0;
-  }
 }
 
 html {
@@ -63,7 +43,23 @@ html {
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-display), system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--dusty-blue) 55%, white);
+}
+
+.editorial-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--border) 40%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--border) 40%, transparent) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+}
+
+.text-balance {
+  text-wrap: balance;
 }
