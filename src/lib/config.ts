@@ -1,14 +1,29 @@
 const DEFAULT_SITE_URL = "https://nextu.in";
+const VERCEL_PRODUCTION_HOST = "nextu-nu.vercel.app";
 
-function resolveSiteUrl(): string {
-  const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim();
-  if (!raw) return DEFAULT_SITE_URL;
+function normalizeSiteUrl(value: string | undefined): string | null {
+  const raw = value?.trim();
+  if (!raw) return null;
   try {
     const parsed = new URL(raw.includes("://") ? raw : `https://${raw}`);
     return parsed.origin;
   } catch {
-    return DEFAULT_SITE_URL;
+    return null;
   }
+}
+
+function resolveSiteUrl(): string {
+  const fromPublicEnv = normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL);
+  if (fromPublicEnv) return fromPublicEnv;
+
+  const fromVercel = normalizeSiteUrl(
+    process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : undefined,
+  );
+  if (fromVercel) return fromVercel;
+
+  return normalizeSiteUrl(`https://${VERCEL_PRODUCTION_HOST}`) ?? DEFAULT_SITE_URL;
 }
 
 export const siteConfig = {
