@@ -10,6 +10,10 @@ const transitionCopy =
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
+function portraitAlt(_item: Testimonial) {
+  return "Placeholder lifestyle portrait for demo testimonial layout";
+}
+
 function FeaturedTestimonial({ item }: { item: Testimonial }) {
   const reduceMotion = useReducedMotion();
 
@@ -26,17 +30,16 @@ function FeaturedTestimonial({ item }: { item: Testimonial }) {
         className="relative overflow-hidden rounded-[2rem] border border-white/60 bg-surface/90 p-6 shadow-[var(--shadow-soft)] backdrop-blur-sm sm:p-8 lg:grid lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-10 lg:p-10"
       >
         <motion.div
-          className="relative mx-auto w-full max-w-md lg:mx-0"
+          className="relative mx-auto w-full max-w-md lg:mx-0 lg:-mr-6 lg:translate-y-1"
           initial={reduceMotion ? false : { opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.55, delay: 0.22, ease }}
-          whileHover={reduceMotion ? undefined : { scale: 1.015 }}
         >
           <TestimonialPortrait
             image={item.image}
-            avatarKey={item.avatarKey}
-            alt={`Illustrated portrait for ${item.name}`}
+            imagePosition={item.imagePosition}
+            alt={portraitAlt(item)}
             variant="featured"
           />
           <div
@@ -98,18 +101,15 @@ function SupportingTestimonial({
           layout === "tall" ? "flex-col sm:flex-row sm:items-center" : "flex-col sm:flex-row",
         )}
       >
-        <motion.div
-          className={cn(layout === "wide" ? "sm:max-w-[200px]" : "")}
-          whileHover={reduceMotion ? undefined : { scale: 1.03 }}
-          transition={{ duration: 0.25 }}
-        >
+        <div className={cn(layout === "wide" ? "sm:max-w-[220px]" : "sm:max-w-[200px]")}>
           <TestimonialPortrait
             image={item.image}
-            avatarKey={item.avatarKey}
-            alt={`Illustrated portrait for ${item.name}`}
+            imagePosition={item.imagePosition}
+            alt={portraitAlt(item)}
             variant="supporting"
+            crop={index === 1 ? "organic" : "default"}
           />
-        </motion.div>
+        </div>
         <div className="flex min-w-0 flex-1 flex-col justify-center">
           <p className="text-base leading-relaxed text-navy sm:text-[1.05rem]">
             &ldquo;{item.quote}&rdquo;
@@ -137,8 +137,8 @@ function MobileTestimonialRow({ item, index }: { item: Testimonial; index: numbe
     >
       <TestimonialPortrait
         image={item.image}
-        avatarKey={item.avatarKey}
-        alt={`Illustrated portrait for ${item.name}`}
+        imagePosition={item.imagePosition}
+        alt={portraitAlt(item)}
         variant="compact"
       />
       <div className="min-w-0 flex-1">
