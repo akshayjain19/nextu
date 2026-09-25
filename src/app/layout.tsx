@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    locale: "en_IN",
+    locale: "en_US",
     url: siteConfig.url,
     siteName: siteConfig.name,
     title: `${siteConfig.name} — Life Design & Transformation`,

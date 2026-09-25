@@ -14,7 +14,10 @@ export const siteConfig = {
     twitter: "#",
     linkedin: "#",
     instagram: "#",
+    github: "#",
   },
+  /** Replace with verified metrics when available — do not invent figures. */
+  metrics: [] as { label: string; value: string }[],
 } as const;
 
 export const navLinks = [
