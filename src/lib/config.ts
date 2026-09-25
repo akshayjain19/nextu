@@ -5,7 +5,7 @@ export const siteConfig = {
   description:
     "NextU is Life Design & Transformation—helping you identify what needs attention in your life and connecting you with relevant experts for clarity, confidence, health, relationships, and personal growth.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://nextu.in",
-  whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "919876543210",
+  whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "917737283140",
   stats: {
     experts: "100+",
     customers: "1,000+",
