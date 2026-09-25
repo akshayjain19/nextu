@@ -47,7 +47,7 @@ export function AnimatedInput({
   const fieldId = id ?? props.name;
   return (
     <div>
-      <label htmlFor={fieldId} className="mb-2 block text-sm font-medium">
+      <label htmlFor={fieldId} className="mb-2.5 block text-sm font-medium">
         {label}
         {optional && <span className="ml-1 font-normal text-ink-soft">(optional)</span>}
       </label>
@@ -81,7 +81,7 @@ export function AnimatedTextarea({
   const fieldId = id ?? props.name;
   return (
     <div>
-      <label htmlFor={fieldId} className="mb-2 block text-sm font-medium">
+      <label htmlFor={fieldId} className="mb-2.5 block text-sm font-medium">
         {label}
         {optional && <span className="ml-1 font-normal text-ink-soft">(optional)</span>}
       </label>

@@ -26,7 +26,7 @@ export function HowItWorks() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section id="how-it-works" className="scroll-mt-28 bg-canvas-sky py-20 sm:py-28">
+    <section id="how-it-works" className="section-spacing scroll-mt-28 bg-canvas-sky">
       <div className="mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-10">
         <Reveal>
           <h2 className="text-3xl font-bold text-navy sm:text-4xl">How it works</h2>

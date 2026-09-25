@@ -9,7 +9,7 @@ export function CoreInterventions() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section id="interventions" className="scroll-mt-28 py-20 sm:py-28">
+    <section id="interventions" className="section-spacing scroll-mt-28">
       <div className="mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-10">
         <Reveal>
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-cobalt-deep">

@@ -13,7 +13,7 @@ export function NextUHero() {
   return (
     <section className="hero-blob relative overflow-hidden pt-28 pb-10 lg:pb-16">
       <div className="mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-10">
-        <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-6">
+        <div className="grid items-start gap-8 lg:grid-cols-12 lg:gap-8">
           <div className="order-1 lg:col-span-5 lg:pt-4">
             <motion.p
               className="text-[11px] font-bold uppercase tracking-[0.28em] text-cobalt-deep"
@@ -66,7 +66,7 @@ export function NextUHero() {
             <ExpertConstellation />
           </div>
 
-          <div className="relative z-10 order-3 lg:col-span-3 lg:-mt-6">
+          <div className="relative z-10 order-3 lg:col-span-3 lg:-mt-2">
             <LeadForm />
           </div>
         </div>

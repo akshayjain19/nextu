@@ -60,14 +60,14 @@ export function LeadForm() {
   return (
     <motion.div
       id="lead-form"
-      className="scroll-mt-28 rounded-2xl border border-white/60 bg-surface/95 p-5 shadow-[var(--shadow-soft)] backdrop-blur-md sm:p-6"
+      className="scroll-mt-28 rounded-2xl border border-white/60 bg-surface/95 p-4 shadow-[var(--shadow-soft)] backdrop-blur-md sm:p-5"
       initial={reduceMotion ? false : { opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.55, delay: 0.15 }}
     >
-      <h2 className="text-lg font-semibold tracking-tight">Find the right expert</h2>
+      <h2 className="text-base font-semibold tracking-tight sm:text-lg">Find the right expert</h2>
       <form
-        className="mt-4 space-y-3.5"
+        className="mt-3.5 space-y-[1.125rem]"
         onSubmit={onSubmit}
         noValidate
         onFocus={markStarted}
@@ -103,8 +103,8 @@ export function LeadForm() {
           onChange={(e) => setName(e.target.value)}
           autoComplete="name"
         />
-        <div className="pt-1">
-          <AnimatedButton type="submit" className="w-full py-3.5 text-base">
+        <div className="pt-1.5">
+          <AnimatedButton type="submit" size="form" className="w-full sm:w-full">
             Continue on WhatsApp →
           </AnimatedButton>
           <p className="mt-2 text-center text-[11px] text-ink-soft sm:text-left">

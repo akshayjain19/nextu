@@ -12,7 +12,7 @@ type FounderPortraitProps = {
   category: string;
   initials: string;
   image?: string;
-  variant: "hero" | "secondary";
+  imagePosition?: string;
   className?: string;
 };
 
@@ -21,7 +21,7 @@ export function FounderPortrait({
   category,
   initials,
   image,
-  variant,
+  imagePosition = "50% 20%",
   className,
 }: FounderPortraitProps) {
   const gradient = accentByCategory[category] ?? accentByCategory.Aviation;
@@ -29,10 +29,7 @@ export function FounderPortrait({
   return (
     <div
       className={cn(
-        "relative overflow-hidden ring-1 ring-white/20 shadow-2xl shadow-navy/25 transition-shadow duration-300 group-hover:shadow-cobalt/20",
-        variant === "hero"
-          ? "aspect-[4/5] min-h-[320px] rounded-[2rem] sm:min-h-[420px] lg:min-h-[480px]"
-          : "aspect-[3/4] min-h-[240px] rounded-[1.75rem] sm:min-h-[280px]",
+        "relative aspect-[4/5] w-full overflow-hidden rounded-[1.35rem] ring-1 ring-white/20 shadow-lg shadow-navy/20 transition-shadow duration-300 group-hover:shadow-cobalt/15",
         className,
       )}
     >
@@ -42,26 +39,27 @@ export function FounderPortrait({
           alt={`${name}, NextU founder`}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-          sizes={variant === "hero" ? "(max-width:768px) 92vw, 40vw" : "(max-width:768px) 45vw, 22vw"}
+          style={{ objectPosition: imagePosition }}
+          sizes="(max-width:768px) 90vw, 30vw"
         />
       ) : (
         <div
           className={cn(
-            "flex h-full w-full flex-col items-center justify-end bg-gradient-to-br p-8 pb-12 text-center",
+            "flex h-full w-full flex-col items-center justify-end bg-gradient-to-br p-6 pb-10 text-center",
             gradient,
           )}
           aria-hidden
         >
-          <span className="font-serif text-[clamp(3rem,12vw,5.5rem)] font-semibold leading-none text-white/25">
+          <span className="font-serif text-[clamp(2.5rem,8vw,4rem)] font-semibold leading-none text-white/25">
             {initials}
           </span>
-          <p className="mt-6 text-xs font-semibold uppercase tracking-[0.28em] text-white/70">
+          <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.28em] text-white/70">
             {category}
           </p>
         </div>
       )}
       <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/50 via-transparent to-transparent opacity-60"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/40 via-transparent to-transparent opacity-70"
         aria-hidden
       />
     </div>

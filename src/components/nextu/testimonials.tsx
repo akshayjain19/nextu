@@ -156,7 +156,7 @@ export function TestimonialsSection() {
 
   return (
     <section
-      className="relative overflow-hidden bg-gradient-to-b from-canvas-sky/50 via-[#f8fbff] to-surface py-20 sm:py-28"
+      className="section-spacing relative overflow-hidden bg-gradient-to-b from-canvas-sky/50 via-[#f8fbff] to-surface"
       aria-labelledby="testimonials-heading"
     >
       <motion.div

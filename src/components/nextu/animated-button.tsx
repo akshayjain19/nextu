@@ -4,17 +4,24 @@ import { cn } from "@/lib/utils";
 import { motion, useReducedMotion } from "framer-motion";
 import type { ButtonHTMLAttributes } from "react";
 
+type AnimatedButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  size?: "default" | "form";
+};
+
 export function AnimatedButton({
   className,
   children,
   disabled,
   type = "button",
+  size = "default",
   ...props
-}: ButtonHTMLAttributes<HTMLButtonElement>) {
+}: AnimatedButtonProps) {
   const reduceMotion = useReducedMotion();
+  const isFullWidth = className?.includes("w-full");
+
   return (
     <motion.div
-      className={cn("inline-flex", className?.includes("w-full") && "w-full")}
+      className={cn("inline-flex", isFullWidth && "w-full")}
       whileHover={reduceMotion || disabled ? undefined : { scale: 1.02 }}
       whileTap={reduceMotion || disabled ? undefined : { scale: 0.98 }}
     >
@@ -22,7 +29,10 @@ export function AnimatedButton({
         type={type}
         disabled={disabled}
         className={cn(
-          "relative w-full overflow-hidden rounded-2xl bg-cobalt px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-cobalt/25 transition-colors hover:bg-cobalt-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cobalt/40 focus-visible:ring-offset-2 disabled:opacity-50 sm:w-auto",
+          "relative w-full overflow-hidden rounded-2xl bg-cobalt font-semibold text-white shadow-lg shadow-cobalt/25 transition-colors hover:bg-cobalt-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cobalt/40 focus-visible:ring-offset-2 disabled:opacity-50 sm:w-auto",
+          size === "form"
+            ? "min-h-[52px] max-h-[58px] rounded-xl px-5 py-2.5 text-sm"
+            : "px-6 py-3.5 text-sm",
           className,
         )}
         {...props}

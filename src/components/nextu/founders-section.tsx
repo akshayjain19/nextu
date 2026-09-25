@@ -1,47 +1,26 @@
 "use client";
 
 import { FounderPortrait } from "@/components/nextu/founder-portrait";
-import { founders, partitionFounders, type Founder } from "@/data/founders";
+import { founders, type Founder } from "@/data/founders";
 import { siteConfig } from "@/lib/config";
-import { cn } from "@/lib/utils";
 import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-function FounderCard({
-  founder,
-  variant,
-  index,
-}: {
-  founder: Founder;
-  variant: "hero" | "secondary";
-  index: number;
-}) {
+function FounderCard({ founder, index }: { founder: Founder; index: number }) {
   const reduceMotion = useReducedMotion();
 
   return (
     <motion.article
-      className={cn(
-        "group relative",
-        variant === "hero" ? "lg:col-span-7" : "lg:col-span-5",
-      )}
-      initial={reduceMotion ? false : { opacity: 0, y: 32 }}
+      className="group flex h-full flex-col"
+      initial={reduceMotion ? false : { opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{
-        duration: 0.6,
-        delay: variant === "hero" ? 0.18 : 0.32 + index * 0.1,
-        ease,
-      }}
-      whileHover={reduceMotion ? undefined : { y: -4 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.55, delay: 0.12 + index * 0.08, ease }}
+      whileHover={reduceMotion ? undefined : { y: -3 }}
     >
-      <div
-        className={cn(
-          "rounded-[1.75rem] border border-white/10 bg-white/5 p-5 backdrop-blur-sm sm:p-6",
-          variant === "hero" ? "lg:p-8" : "",
-        )}
-      >
+      <div className="flex h-full flex-col rounded-[1.5rem] border border-white/10 bg-white/5 p-5 backdrop-blur-sm sm:p-6">
         <p className="text-[10px] font-bold uppercase tracking-[0.32em] text-sky-200/90">
           {founder.categoryLabel}
         </p>
@@ -50,28 +29,24 @@ function FounderCard({
           category={founder.category}
           initials={founder.initials}
           image={founder.image}
-          variant={variant === "hero" ? "hero" : "secondary"}
           className="mt-4"
         />
-        <header className="mt-6">
-          <h3
-            className={cn(
-              "font-semibold text-white",
-              variant === "hero" ? "text-2xl sm:text-3xl" : "text-xl sm:text-2xl",
+        <div className="mt-5 flex flex-1 flex-col">
+          <header>
+            <h3 className="text-lg font-semibold leading-snug text-white sm:text-xl">
+              {founder.name}
+            </h3>
+            <p className="mt-2 text-sm font-medium text-sky-100/90">
+              {founder.designation}
+            </p>
+            {founder.secondaryDesignation && (
+              <p className="mt-1 text-sm text-sky-200/75">{founder.secondaryDesignation}</p>
             )}
-          >
-            {founder.name}
-          </h3>
-          <p className="mt-2 text-sm font-medium text-sky-100/90 sm:text-base">
-            {founder.designation}
+          </header>
+          <p className="mt-4 flex-1 text-sm leading-relaxed text-sky-50/85">
+            {founder.bio}
           </p>
-          {founder.secondaryDesignation && (
-            <p className="mt-1 text-sm text-sky-200/75">{founder.secondaryDesignation}</p>
-          )}
-        </header>
-        <p className="mt-4 text-sm leading-relaxed text-sky-50/85 sm:text-[0.95rem]">
-          {founder.bio}
-        </p>
+        </div>
       </div>
     </motion.article>
   );
@@ -79,14 +54,14 @@ function FounderCard({
 
 function DisciplineBridge({ reduceMotion }: { reduceMotion: boolean | null }) {
   return (
-    <div className="relative my-6 hidden lg:block lg:my-8" aria-hidden>
+    <div className="relative my-10 hidden lg:block" aria-hidden>
       <svg
-        className="mx-auto h-32 w-full max-w-3xl text-cobalt/40"
-        viewBox="0 0 600 120"
+        className="mx-auto h-28 w-full max-w-4xl text-cobalt/40"
+        viewBox="0 0 800 100"
         fill="none"
       >
         <motion.path
-          d="M80 60 C 200 20, 400 20, 520 60 M300 60 L300 95"
+          d="M40 50 C 200 20, 600 20, 760 50"
           stroke="currentColor"
           strokeWidth="1.5"
           strokeLinecap="round"
@@ -96,16 +71,16 @@ function DisciplineBridge({ reduceMotion }: { reduceMotion: boolean | null }) {
           transition={{ duration: 1.2, ease: "easeInOut" }}
         />
       </svg>
-      <div className="absolute left-[8%] top-6 text-[10px] font-bold tracking-widest text-sky-300/80">
-        AIR
+      <div className="absolute left-[6%] top-4 text-[10px] font-bold tracking-widest text-sky-300/80">
+        AVIATION
       </div>
-      <div className="absolute left-[8%] bottom-4 text-[10px] font-bold tracking-widest text-sky-300/80">
+      <div className="absolute left-1/2 top-4 -translate-x-1/2 text-[10px] font-bold tracking-widest text-sky-300/80">
         MEDICINE
       </div>
-      <div className="absolute right-[8%] top-6 text-[10px] font-bold tracking-widest text-sky-300/80">
-        MIND
+      <div className="absolute right-[6%] top-4 text-[10px] font-bold tracking-widest text-sky-300/80">
+        PSYCHOLOGY
       </div>
-      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-center">
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 text-center">
         <p className="text-[10px] font-bold tracking-[0.35em] text-white/50">NEXTU</p>
         <p className="mt-1 text-xs font-medium text-sky-100/80">{siteConfig.brandLine}</p>
       </div>
@@ -115,11 +90,10 @@ function DisciplineBridge({ reduceMotion }: { reduceMotion: boolean | null }) {
 
 export function FoundersSection() {
   const reduceMotion = useReducedMotion();
-  const { featured, supporting } = partitionFounders(founders);
 
   return (
     <section
-      className="relative overflow-hidden bg-[#0a1628] py-20 sm:py-28"
+      className="section-spacing relative overflow-hidden bg-[#0a1628]"
       aria-labelledby="founders-heading"
     >
       <div
@@ -162,50 +136,32 @@ export function FoundersSection() {
 
         <DisciplineBridge reduceMotion={reduceMotion} />
 
-        <div className="mt-8 hidden items-start gap-8 lg:grid lg:grid-cols-12">
-          <div className="lg:col-span-7">
-            <FounderCard founder={featured} variant="hero" index={0} />
-          </div>
-          <div className="flex flex-col gap-8 lg:col-span-5 lg:pt-20">
-            {supporting.map((f, i) => (
-              <FounderCard key={f.id} founder={f} variant="secondary" index={i} />
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-12 flex flex-col gap-10 lg:hidden">
-          {[featured, ...supporting].map((f, i) => (
-            <FounderCard
-              key={f.id}
-              founder={f}
-              variant={i === 0 ? "hero" : "secondary"}
-              index={i}
-            />
+        <div className="mt-10 grid grid-cols-1 items-stretch gap-6 md:grid-cols-3 md:gap-8">
+          {founders.map((founder, i) => (
+            <FounderCard key={founder.id} founder={founder} index={i} />
           ))}
         </div>
 
         <motion.div
-          className="mt-16 text-center lg:mt-20"
+          className="mt-14 text-center lg:mt-16"
           initial={reduceMotion ? false : { opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1, ease }}
         >
-          <p
-            className="text-[clamp(1.75rem,4.5vw,3rem)] font-bold leading-tight tracking-tight text-white"
-          >
+          <p className="text-[clamp(1.75rem,4.5vw,3rem)] font-bold leading-tight tracking-tight text-white">
             Different paths.
             <br />
             <span className="text-sky-300">One mission.</span>
           </p>
-          <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-sky-100/80 sm:text-lg">
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-sky-100/80 sm:text-lg">
             From the cockpit to the clinic to the world of psychology, NextU brings
             together perspectives that help people move forward.
           </p>
         </motion.div>
 
         <motion.div
-          className="mt-14 rounded-[1.75rem] border border-white/10 bg-gradient-to-br from-white/10 to-cobalt/10 p-8 text-center sm:p-10"
+          className="mt-12 rounded-[1.5rem] border border-white/10 bg-gradient-to-br from-white/10 to-cobalt/10 p-7 text-center sm:mt-14 sm:p-9"
           initial={reduceMotion ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -215,7 +171,7 @@ export function FoundersSection() {
           <p className="mt-3 text-sky-100/85">{siteConfig.tagline}</p>
           <Link
             href="/#lead-form"
-            className="mt-8 inline-flex rounded-2xl bg-cobalt px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-cobalt/40 transition-colors hover:bg-cobalt-deep"
+            className="mt-7 inline-flex min-h-[52px] items-center justify-center rounded-xl bg-cobalt px-8 py-2.5 text-sm font-semibold text-white shadow-lg shadow-cobalt/40 transition-colors hover:bg-cobalt-deep"
           >
             Find My Expert →
           </Link>

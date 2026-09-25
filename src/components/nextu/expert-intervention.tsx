@@ -1,36 +1,13 @@
 "use client";
 
 import { ExpertPictogram } from "@/components/nextu/expert-pictograms";
-import { expertInterventionTypes, type ExpertSize } from "@/data/expert-interventions";
+import { expertInterventionTypes } from "@/data/expert-interventions";
 import { scrollToLeadForm } from "@/lib/scroll";
 import { cn } from "@/lib/utils";
 import { motion, useReducedMotion } from "framer-motion";
 
-const sizeStyles: Record<
-  ExpertSize,
-  { card: string; art: string; title: string }
-> = {
-  feature: {
-    card: "min-h-[280px] sm:min-h-[320px]",
-    art: "h-[55%] min-h-[140px]",
-    title: "text-xl sm:text-2xl",
-  },
-  large: {
-    card: "min-h-[240px] sm:min-h-[260px]",
-    art: "h-[50%] min-h-[120px]",
-    title: "text-lg sm:text-xl",
-  },
-  medium: {
-    card: "min-h-[200px]",
-    art: "h-[48%] min-h-[100px]",
-    title: "text-base sm:text-lg",
-  },
-  compact: {
-    card: "min-h-[180px]",
-    art: "h-[45%] min-h-[88px]",
-    title: "text-sm sm:text-base",
-  },
-};
+const ART_AREA_HEIGHT = "h-[168px] sm:h-[176px]";
+const CONTENT_MIN_HEIGHT = "min-h-[5.5rem]";
 
 function ExpertWallCard({
   expert,
@@ -40,13 +17,11 @@ function ExpertWallCard({
   index: number;
 }) {
   const reduceMotion = useReducedMotion();
-  const styles = sizeStyles[expert.size];
 
   return (
     <motion.li
       className={cn(
-        "group relative list-none overflow-hidden rounded-[1.35rem] border border-white/10 bg-gradient-to-br from-[#1a2d4a] to-[#0f1f38] shadow-xl shadow-black/20",
-        styles.card,
+        "group relative flex list-none flex-col overflow-hidden rounded-[1.35rem] border border-white/10 bg-gradient-to-br from-[#1a2d4a] to-[#0f1f38] shadow-xl shadow-black/20",
         expert.widthClass,
       )}
       initial={reduceMotion ? false : { opacity: 0, y: 28 }}
@@ -69,13 +44,13 @@ function ExpertWallCard({
       />
       <div
         className={cn(
-          "relative flex items-end justify-center overflow-hidden px-2 pt-2",
-          styles.art,
+          "relative flex shrink-0 items-center justify-center px-3 pt-3",
+          ART_AREA_HEIGHT,
         )}
       >
         <motion.div
-          className="w-full max-w-[220px]"
-          animate={reduceMotion ? undefined : { y: [0, -5, 0] }}
+          className="flex h-full w-full max-w-[220px] items-center justify-center"
+          animate={reduceMotion ? undefined : { y: [0, -4, 0] }}
           transition={{
             duration: 4 + index * 0.3,
             repeat: Infinity,
@@ -84,20 +59,31 @@ function ExpertWallCard({
         >
           <ExpertPictogram
             id={expert.id}
-            className="h-full w-full transition-transform duration-300 group-hover:scale-[1.03]"
+            className="max-h-[85%] max-w-[80%] h-auto w-auto transition-transform duration-300 group-hover:scale-[1.03]"
           />
         </motion.div>
       </div>
-      <div className="relative border-t border-white/10 bg-[#0c1a3a]/60 px-4 py-3 backdrop-blur-sm sm:px-5 sm:py-4">
+      <div
+        className={cn(
+          "relative mt-auto border-t border-white/10 bg-[#0c1a3a]/60 px-4 py-3.5 backdrop-blur-sm sm:px-5 sm:py-4",
+          CONTENT_MIN_HEIGHT,
+        )}
+      >
         <p
           className={cn(
             "font-semibold leading-snug text-white transition-colors group-hover:text-sky",
-            styles.title,
+            expert.size === "feature"
+              ? "text-lg sm:text-xl"
+              : expert.size === "large"
+                ? "text-base sm:text-lg"
+                : "text-sm sm:text-base",
           )}
         >
           {expert.label}
         </p>
-        <p className="mt-1 text-xs text-white/55 sm:text-sm">{expert.descriptor}</p>
+        <p className="mt-1.5 text-xs leading-snug text-white/55 sm:text-sm">
+          {expert.descriptor}
+        </p>
       </div>
     </motion.li>
   );
@@ -107,7 +93,7 @@ export function ExpertIntervention() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden bg-[#071222] py-20 text-white sm:py-28">
+    <section className="section-spacing relative overflow-hidden bg-[#071222] text-white">
       <div
         className="pointer-events-none absolute inset-0 opacity-60"
         aria-hidden
@@ -156,7 +142,7 @@ export function ExpertIntervention() {
         </motion.header>
 
         <ul
-          className="mt-14 flex flex-wrap justify-center gap-3 sm:gap-4"
+          className="mt-12 flex flex-wrap justify-center gap-3 sm:mt-14 sm:gap-4"
           aria-label="Expert intervention categories"
         >
           {expertInterventionTypes.map((expert, i) => (
@@ -165,7 +151,7 @@ export function ExpertIntervention() {
         </ul>
 
         <motion.div
-          className="mt-12 text-center lg:text-left"
+          className="mt-10 text-center sm:mt-12 lg:text-left"
           initial={reduceMotion ? false : { opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}

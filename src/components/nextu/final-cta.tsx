@@ -5,7 +5,7 @@ import { trackEvent } from "@/lib/analytics";
 
 export function FinalCta() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-canvas-sky to-cobalt/10 py-24 sm:py-32">
+    <section className="section-spacing relative overflow-hidden bg-gradient-to-b from-canvas-sky to-cobalt/10">
       <div className="relative mx-auto max-w-[1280px] px-5 text-center sm:px-8 lg:px-10">
         <h2 className="text-4xl font-bold text-navy sm:text-5xl">Ready to take the next step?</h2>
         <p className="mx-auto mt-4 max-w-lg text-lg text-ink-muted">

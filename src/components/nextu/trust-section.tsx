@@ -125,7 +125,7 @@ export function TrustSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-surface py-20 sm:py-28"
+      className="section-spacing relative overflow-hidden bg-surface"
       aria-labelledby="trust-heading"
     >
       <motion.div
