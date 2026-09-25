@@ -3,42 +3,53 @@ export const faqItems = [
     id: "what-is-nextu",
     question: "What is NextU?",
     answer:
-      "NextU is an expert-discovery platform. You tell us what kind of professional you need and what you're looking for, and we help connect you with someone from our network who can help.",
+      "NextU is Life Design & Transformation. We help you identify areas of your life that need attention and connect you with relevant experts who can support your next step—starting with a simple request on WhatsApp.",
   },
   {
-    id: "what-experts",
-    question: "What kind of experts can I find through NextU?",
+    id: "life-design",
+    question: "What does Life Design & Transformation mean?",
     answer:
-      "Our network spans healthcare, career and personal growth, technology, business and marketing, and specialized fields such as aviation, finance, and legal. If you don't see your need listed, you can still tell us what you're looking for.",
+      "It’s our way of describing support across clarity, lifestyle, confidence, relationships, goals, and specialist expertise. NextU doesn’t deliver every service directly—we help you find the right expert for what you need.",
   },
   {
-    id: "how-connect",
-    question: "How does NextU connect me with an expert?",
+    id: "support-types",
+    question: "What kind of support can I find through NextU?",
     answer:
-      "After you submit your request via WhatsApp, our team reviews your requirement and reaches out to help match you with a relevant expert. Connection happens offline—we coordinate the introduction directly with you.",
+      "Areas such as life clarity, lifestyle evaluation, personality development, relationship skills, confidence building, and goal mapping—plus expert support including coaches, nutritionists, fitness professionals, mental health professionals, and more.",
+  },
+  {
+    id: "experts",
+    question: "What kinds of experts can NextU connect me with?",
+    answer:
+      "Examples include public speaking coaches, nutritionists, dermatologists, fitness coaches, career coaches, mental health professionals, image consultants, digital detox coaches, and communication trainers. If your need isn’t listed, choose Other and describe it.",
+  },
+  {
+    id: "how-work",
+    question: "How does NextU work?",
+    answer:
+      "Tell us what you need in the form, continue on WhatsApp with a pre-filled message, and send it to us. Our team reviews your requirement and helps connect you with a relevant expert offline.",
   },
   {
     id: "account",
     question: "Do I need to create an account?",
-    answer:
-      "No. There are no user accounts in our current version. Simply fill out the form and send us your request on WhatsApp.",
+    answer: "No. There are no user accounts in V1—just the form and WhatsApp.",
   },
   {
     id: "payment",
     question: "Do I need to pay to submit a request?",
     answer:
-      "Submitting a request through NextU is free. Any fees for working with an expert would be discussed directly between you and the professional.",
+      "Submitting a request is free. Any fees for working with an expert are discussed directly with the professional.",
+  },
+  {
+    id: "after-whatsapp",
+    question: "What happens after I contact NextU on WhatsApp?",
+    answer:
+      "Once you send your message, our team follows up on WhatsApp to understand your need and help coordinate a connection with an appropriate expert.",
   },
   {
     id: "unlisted",
-    question: "Can I request an expert who isn't listed?",
+    question: "Can I request an expert who is not listed?",
     answer:
-      'Yes. Choose "Other" or describe your need in the form. We\'ll do our best to find someone relevant in our network.',
-  },
-  {
-    id: "contact",
-    question: "How will NextU contact me?",
-    answer:
-      "We follow up on WhatsApp—the same account you use when you send us your request. Make sure you're signed into the WhatsApp account you want us to reach.",
+      'Yes. Select "Other" or describe your need—we\'ll do our best to find relevant support in our network.',
   },
 ];

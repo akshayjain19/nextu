@@ -5,9 +5,21 @@ import { cn } from "@/lib/utils";
 import { motion, useReducedMotion } from "framer-motion";
 
 const steps = [
-  { n: "01", title: "Tell us what you need", copy: "Share what you're looking for through a simple form." },
-  { n: "02", title: "We find the right expert", copy: "Our network helps identify someone relevant to your requirement." },
-  { n: "03", title: "Get connected", copy: "We'll help connect you with the expert and take it from there." },
+  {
+    n: "01",
+    title: "Tell us what you need",
+    copy: "Share what you're looking for through a simple form.",
+  },
+  {
+    n: "02",
+    title: "We understand the right kind of support",
+    copy: "Based on your requirement, we help identify the right area of expertise.",
+  },
+  {
+    n: "03",
+    title: "Get connected",
+    copy: "We connect you with the relevant expert and take it from there.",
+  },
 ];
 
 export function HowItWorks() {
@@ -19,19 +31,19 @@ export function HowItWorks() {
         <Reveal>
           <h2 className="text-3xl font-bold text-navy sm:text-4xl">How it works</h2>
         </Reveal>
-        <div className="relative mt-16">
+        <div className="relative mt-14">
           <div className="absolute left-8 top-0 hidden h-full w-px bg-cobalt/20 lg:left-1/2 lg:block" aria-hidden />
           <ul className="space-y-12 lg:space-y-20">
             {steps.map((step, i) => (
               <Reveal key={step.n} delay={i * 0.08}>
                 <li
-                  className={`relative grid gap-6 lg:grid-cols-2 lg:items-center ${i % 2 === 1 ? "lg:text-right" : ""}`}
+                  className={cn(
+                    "relative grid gap-6 lg:grid-cols-2 lg:items-center",
+                    i % 2 === 1 && "lg:text-right",
+                  )}
                 >
                   <motion.div
-                    className={cn(
-                      "flex items-center gap-4",
-                      i % 2 === 1 && "lg:order-2 lg:justify-end",
-                    )}
+                    className={cn("flex items-center gap-4", i % 2 === 1 && "lg:order-2 lg:justify-end")}
                     whileHover={reduceMotion ? undefined : { x: i % 2 ? -6 : 6 }}
                   >
                     <span className="text-6xl font-bold text-cobalt/25 sm:text-7xl">{step.n}</span>
@@ -41,7 +53,10 @@ export function HowItWorks() {
                     </div>
                   </motion.div>
                   <div
-                    className={`hidden h-24 rounded-3xl border border-dashed border-cobalt/30 bg-surface/50 lg:block ${i % 2 === 1 ? "lg:order-1" : ""}`}
+                    className={cn(
+                      "hidden h-20 rounded-3xl border border-dashed border-cobalt/25 bg-surface/60 lg:block",
+                      i % 2 === 1 && "lg:order-1",
+                    )}
                     aria-hidden
                   />
                 </li>

@@ -18,16 +18,23 @@ const display = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — Find the Right Expert`,
+    default: `${siteConfig.name} — Life Design & Transformation`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   keywords: [
-    "find an expert",
+    "Life Design & Transformation",
     "find the right expert",
-    "connect with experts",
-    "expert network",
-    "find professionals online",
+    "personal growth experts",
+    "career coach",
+    "confidence building",
+    "communication coach",
+    "nutritionist",
+    "fitness coach",
+    "mental health professional",
+    "life clarity",
+    "goal mapping",
+    "relationship management",
   ],
   alternates: { canonical: "/" },
   openGraph: {
@@ -35,7 +42,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} — Find the Right Expert`,
+    title: `${siteConfig.name} — Life Design & Transformation`,
     description: siteConfig.description,
     images: [
       {
@@ -48,7 +55,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — Find the Right Expert`,
+    title: `${siteConfig.name} — Life Design & Transformation`,
     description: siteConfig.description,
   },
   robots: { index: true, follow: true },

@@ -7,18 +7,21 @@ export function AboutSection() {
       <div className="mx-auto grid max-w-[1280px] gap-10 px-5 sm:px-8 lg:grid-cols-2 lg:px-10">
         <Reveal>
           <h2 className="text-4xl font-bold tracking-tight text-navy sm:text-5xl">
-            We&apos;re making expertise easier to find.
+            We believe finding the right support shouldn&apos;t be complicated.
           </h2>
         </Reveal>
         <Reveal delay={0.08}>
           <p className="text-lg text-ink-muted">
-            Finding the right professional often means asking multiple people,
-            searching several places, comparing options, and still not knowing who
-            can actually help.
+            People often know that something in their life needs attention, but
+            they don&apos;t always know who to turn to.
+          </p>
+          <p className="mt-4 text-ink-muted">
+            It could be confidence. Communication. Relationships. Lifestyle.
+            Career. Health. Personal growth.
           </p>
           <p className="mt-4 text-lg text-ink-muted">
-            NextU simplifies that first step—tell us what you need, and we&apos;ll
-            help connect you with someone from our network.
+            NextU helps make that first step simpler by connecting people with
+            relevant experts—Life Design & Transformation in practice.
           </p>
           <Link href="/about" className="mt-6 inline-block font-semibold text-cobalt hover:underline">
             About NextU →

@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About",
-  description: `About ${siteConfig.name} — making expertise easier to find.`,
+  description: `About ${siteConfig.name} — ${siteConfig.brandLine}. Connecting you with experts for clarity, confidence, and personal growth.`,
   alternates: { canonical: "/about" },
 };
 
@@ -17,14 +17,18 @@ export default function AboutPage() {
       <AboutPageTracker />
       <div className="mx-auto max-w-3xl px-5 sm:px-8">
         <Reveal>
-          <NextULogo href={null} className="mb-8 max-h-12" />
-          <h1 className="text-4xl font-bold text-navy sm:text-5xl">
-            We&apos;re making expertise easier to find.
+          <NextULogo href={null} className="mb-6 max-h-12" />
+          <p className="text-xs font-bold uppercase tracking-[0.22em] text-cobalt-deep">
+            {siteConfig.brandLine}
+          </p>
+          <h1 className="mt-4 text-4xl font-bold text-navy sm:text-5xl">
+            We believe finding the right support shouldn&apos;t be complicated.
           </h1>
           <p className="mt-8 text-lg leading-relaxed text-ink-muted">
-            NextU is an expert-discovery platform. You tell us what you need—we
-            use our network to help connect you with a relevant professional.
-            No accounts, no booking flow in V1: just a simple request via WhatsApp.
+            NextU helps people identify areas of life that need improvement and
+            connects them with relevant experts to support their transformation.
+            We facilitate the connection—you work directly with independent
+            professionals suited to your need.
           </p>
         </Reveal>
         <Reveal className="mt-12 flex gap-8" delay={0.08}>

@@ -1,7 +1,7 @@
 "use client";
 
 import { NextULogo } from "@/components/nextu/next-u-logo";
-import { navLinks } from "@/lib/config";
+import { navLinks, siteConfig } from "@/lib/config";
 import { trackEvent } from "@/lib/analytics";
 import { scrollToLeadForm } from "@/lib/scroll";
 import { cn } from "@/lib/utils";
@@ -38,7 +38,12 @@ export function NextUNavbar() {
               : "border-white/40 bg-surface/70 backdrop-blur-sm",
           )}
         >
-          <NextULogo priority variant="full" className="sm:max-h-10" />
+          <div className="flex min-w-0 flex-col">
+            <NextULogo priority variant="full" className="sm:max-h-9" />
+            <span className="mt-0.5 hidden text-[9px] font-semibold uppercase tracking-[0.18em] text-ink-soft sm:block">
+              {siteConfig.brandLine}
+            </span>
+          </div>
           <nav className="hidden items-center gap-6 text-sm text-ink-muted md:flex">
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href} className="hover:text-cobalt">
