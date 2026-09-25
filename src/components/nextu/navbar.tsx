@@ -1,6 +1,7 @@
 "use client";
 
-import { navLinks, siteConfig } from "@/lib/config";
+import { NextULogo } from "@/components/nextu/next-u-logo";
+import { navLinks } from "@/lib/config";
 import { trackEvent } from "@/lib/analytics";
 import { scrollToLeadForm } from "@/lib/scroll";
 import { cn } from "@/lib/utils";
@@ -37,10 +38,7 @@ export function NextUNavbar() {
               : "border-white/40 bg-surface/70 backdrop-blur-sm",
           )}
         >
-          <Link href="/" className="flex items-center gap-2 font-semibold text-navy">
-            <span className="flex size-8 items-center justify-center rounded-full bg-cobalt text-sm text-white">N</span>
-            {siteConfig.name}
-          </Link>
+          <NextULogo priority variant="full" className="sm:max-h-10" />
           <nav className="hidden items-center gap-6 text-sm text-ink-muted md:flex">
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href} className="hover:text-cobalt">
@@ -69,12 +67,15 @@ export function NextUNavbar() {
       <AnimatePresence>
         {open && (
           <motion.nav
-            className="fixed inset-0 z-40 flex flex-col bg-navy/95 px-8 pb-10 pt-24 text-white md:hidden"
+            className="fixed inset-0 z-40 flex flex-col bg-navy/95 px-8 pb-10 pt-8 text-white md:hidden"
             initial={reduceMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <ul className="space-y-6">
+            <div className="rounded-2xl bg-surface px-4 py-3">
+              <NextULogo href="/" />
+            </div>
+            <ul className="mt-10 space-y-6">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-3xl font-semibold" onClick={() => setOpen(false)}>

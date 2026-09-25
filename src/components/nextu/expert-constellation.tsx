@@ -1,5 +1,6 @@
 "use client";
 
+import { NextULogo } from "@/components/nextu/next-u-logo";
 import { heroFloatingCards } from "@/data/expert-categories";
 import { cn } from "@/lib/utils";
 import { motion, useReducedMotion } from "framer-motion";
@@ -17,16 +18,9 @@ export function ExpertConstellation() {
   return (
     <div className="relative mx-auto aspect-[4/5] w-full max-w-md lg:max-w-none lg:aspect-auto lg:min-h-[520px]">
       <div
-        className="absolute left-1/2 top-1/2 size-32 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-dashed border-cobalt/30 bg-cobalt/5 lg:size-40"
-        aria-hidden
+        className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-2xl border border-border bg-surface px-3 py-2 shadow-md lg:px-4"
       >
-        <div className="flex h-full items-center justify-center text-center">
-          <span className="text-xs font-bold uppercase tracking-widest text-cobalt-deep">
-            NextU
-            <br />
-            Network
-          </span>
-        </div>
+        <NextULogo href={null} variant="mark" className="max-h-12 max-w-[72px] lg:max-h-14 lg:max-w-[84px]" />
       </div>
       {heroFloatingCards.map((card, i) => (
         <motion.div

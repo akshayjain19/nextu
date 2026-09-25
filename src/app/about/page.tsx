@@ -1,5 +1,6 @@
 import { AboutPageTracker } from "@/components/about-page-tracker";
 import { FounderPlaceholder } from "@/components/founder-placeholder";
+import { NextULogo } from "@/components/nextu/next-u-logo";
 import { Reveal } from "@/components/ui/reveal";
 import { siteConfig } from "@/lib/config";
 import type { Metadata } from "next";
@@ -16,6 +17,7 @@ export default function AboutPage() {
       <AboutPageTracker />
       <div className="mx-auto max-w-3xl px-5 sm:px-8">
         <Reveal>
+          <NextULogo href={null} className="mb-8 max-h-12" />
           <h1 className="text-4xl font-bold text-navy sm:text-5xl">
             We&apos;re making expertise easier to find.
           </h1>

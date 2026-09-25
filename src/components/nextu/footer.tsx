@@ -1,3 +1,4 @@
+import { NextULogo } from "@/components/nextu/next-u-logo";
 import { siteConfig } from "@/lib/config";
 import Link from "next/link";
 
@@ -6,7 +7,7 @@ export function NextUFooter() {
     <footer className="border-t border-border bg-surface py-14">
       <div className="mx-auto flex max-w-[1280px] flex-col gap-10 px-5 sm:flex-row sm:justify-between sm:px-8 lg:px-10">
         <div>
-          <p className="font-semibold text-navy">{siteConfig.name}</p>
+          <NextULogo variant="full" className="max-h-11" />
           <p className="mt-3 max-w-sm text-sm text-ink-muted">{siteConfig.tagline}</p>
         </div>
         <nav className="flex flex-wrap gap-x-8 gap-y-2 text-sm text-ink-muted">

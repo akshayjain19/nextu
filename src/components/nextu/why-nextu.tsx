@@ -1,5 +1,6 @@
 "use client";
 
+import { NextULogo } from "@/components/nextu/next-u-logo";
 import { Reveal } from "@/components/ui/reveal";
 import { motion, useReducedMotion } from "framer-motion";
 
@@ -19,9 +20,9 @@ export function WhyNextU() {
         <Reveal>
           <div className="relative aspect-[4/5] max-h-[520px] overflow-hidden rounded-[2rem] bg-gradient-to-br from-canvas-sky via-surface to-cobalt/10">
             <div className="absolute inset-8 rounded-3xl border border-dashed border-cobalt/25" aria-hidden />
-            <div className="absolute bottom-10 left-10 right-10 rounded-2xl bg-navy p-6 text-white shadow-xl">
-              <p className="text-sm uppercase tracking-widest text-sky">NextU</p>
-              <p className="mt-2 text-2xl font-semibold">Your need → the right person</p>
+            <div className="absolute bottom-10 left-10 right-10 rounded-2xl bg-surface p-6 shadow-xl">
+              <NextULogo href={null} className="max-h-8" />
+              <p className="mt-3 text-lg font-semibold text-navy">Your need → the right person</p>
             </div>
           </div>
         </Reveal>

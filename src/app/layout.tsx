@@ -2,6 +2,7 @@ import { NextUFooter } from "@/components/nextu/footer";
 import { NextUNavbar } from "@/components/nextu/navbar";
 import { JsonLd } from "@/components/json-ld";
 import { Providers } from "@/components/providers";
+import { brandAssets } from "@/lib/brand";
 import { siteConfig } from "@/lib/config";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import type { Metadata } from "next";
@@ -36,6 +37,14 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     title: `${siteConfig.name} — Find the Right Expert`,
     description: siteConfig.description,
+    images: [
+      {
+        url: brandAssets.logo,
+        width: brandAssets.logoWidth,
+        height: brandAssets.logoHeight,
+        alt: "NextU",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

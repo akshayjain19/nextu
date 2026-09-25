@@ -1,4 +1,5 @@
 import { faqItems } from "@/data/faq";
+import { brandAssets } from "@/lib/brand";
 import { siteConfig } from "@/lib/config";
 
 export function organizationJsonLd() {
