@@ -74,6 +74,8 @@ function AnimatedStat({ value, label, enterDelay, countDelay }: AnimatedStatProp
     <motion.div
       ref={ref}
       className="relative"
+      role="group"
+      aria-label={`${value} ${label}`}
       initial={reduceMotion ? false : { opacity: 0, y: 28 }}
       animate={inView ? { opacity: 1, y: 0 } : undefined}
       transition={{ duration: 0.55, delay: enterDelay, ease: [0.22, 1, 0.36, 1] }}
@@ -99,11 +101,9 @@ function AnimatedStat({ value, label, enterDelay, countDelay }: AnimatedStatProp
             ? { duration: 0.45, ease: "easeOut" }
             : { duration: 0.35, delay: enterDelay }
         }
-        aria-live="polite"
-        aria-atomic="true"
+        aria-hidden="true"
       >
-        <span className="sr-only">{value} {label}</span>
-        <span aria-hidden="true">{display}</span>
+        {display}
       </motion.p>
       <p className="mt-3 text-sm font-medium uppercase tracking-[0.22em] text-ink-soft">
         {label}
