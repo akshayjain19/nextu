@@ -1,5 +1,4 @@
-import { Footer } from "@/components/footer";
-import { Navbar } from "@/components/navbar";
+import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/lib/config";
 import type { Metadata } from "next";
 
@@ -11,16 +10,14 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <>
-      <Navbar />
-      <main className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+    <main className="pt-28 pb-24">
+      <Container className="max-w-3xl">
         <h1 className="text-3xl font-semibold">Privacy Policy</h1>
-        <p className="mt-6 text-muted-foreground leading-relaxed">
-          This page is a placeholder. A full privacy policy will be published
-          before launch.
+        <p className="mt-6 leading-relaxed text-ink-muted">
+          Placeholder policy—publish a full privacy policy before collecting
+          personal data at scale.
         </p>
-      </main>
-      <Footer />
-    </>
+      </Container>
+    </main>
   );
 }

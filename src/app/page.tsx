@@ -1,34 +1,27 @@
-import { AboutPreview } from "@/components/about-preview";
-import { CategoryGrid } from "@/components/category-grid";
-import { Faq } from "@/components/faq";
-import { FinalCta } from "@/components/final-cta";
-import { Footer } from "@/components/footer";
-import { Hero } from "@/components/hero";
-import { HowItWorks } from "@/components/how-it-works";
-import { JsonLd } from "@/components/json-ld";
-import { Navbar } from "@/components/navbar";
-import { Testimonials } from "@/components/testimonials";
-import { TrustStats } from "@/components/trust-stats";
-import { WhyNextU } from "@/components/why-nextu";
-import { faqJsonLd } from "@/lib/seo";
+import { AgencyFinalCta } from "@/components/agency/final-cta";
+import { AgencyHero } from "@/components/agency/hero";
+import { Capabilities } from "@/components/agency/capabilities";
+import { FeaturedWork } from "@/components/agency/featured-work";
+import { GlobalReach } from "@/components/agency/global-reach";
+import { InsightsPreview } from "@/components/agency/insights-preview";
+import { ProcessSection } from "@/components/agency/process-section";
+import { TrustStrip } from "@/components/agency/trust-strip";
+import { WhatWeBuild } from "@/components/agency/what-we-build";
+import { WhyUs } from "@/components/agency/why-us";
 
 export default function HomePage() {
   return (
-    <>
-      <JsonLd data={faqJsonLd()} />
-      <Navbar />
-      <main>
-        <Hero />
-        <TrustStats />
-        <HowItWorks />
-        <CategoryGrid />
-        <WhyNextU />
-        <AboutPreview />
-        <Testimonials />
-        <Faq />
-        <FinalCta />
-      </main>
-      <Footer />
-    </>
+    <main>
+      <AgencyHero />
+      <TrustStrip />
+      <WhatWeBuild />
+      <FeaturedWork />
+      <ProcessSection />
+      <Capabilities />
+      <WhyUs />
+      <GlobalReach />
+      <InsightsPreview />
+      <AgencyFinalCta />
+    </main>
   );
 }
