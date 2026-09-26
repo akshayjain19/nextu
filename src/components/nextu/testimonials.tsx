@@ -11,12 +11,43 @@ const transitionCopy =
 const ease = [0.22, 1, 0.36, 1] as const;
 const PORTRAIT_ALT = "Placeholder lifestyle portrait for demo testimonial layout";
 
+function TestimonialContent({
+  quote,
+  name,
+  role,
+  featured = false,
+}: {
+  quote: string;
+  name: string;
+  role: string;
+  featured?: boolean;
+}) {
+  return (
+    <div className="testimonial-content min-w-0">
+      {featured ? (
+        <blockquote className="text-[clamp(1.15rem,2.6vw,1.85rem)] font-medium leading-snug text-navy">
+          <span className="font-serif text-cobalt/25" aria-hidden>&ldquo;</span>
+          {quote}
+        </blockquote>
+      ) : (
+        <blockquote className="text-sm leading-relaxed text-navy sm:text-base">
+          &ldquo;{quote}&rdquo;
+        </blockquote>
+      )}
+      <footer className="testimonial-author mt-5 border-t border-border pt-4 sm:mt-6">
+        <p className={cn("font-semibold text-ink", featured && "text-lg")}>{name}</p>
+        <p className="mt-1 text-sm font-medium text-cobalt-deep">{role}</p>
+      </footer>
+    </div>
+  );
+}
+
 function FeaturedTestimonial({ item }: { item: Testimonial }) {
   const reduceMotion = useReducedMotion();
 
   return (
     <motion.article
-      className="group relative"
+      className="group h-full"
       initial={reduceMotion ? false : { opacity: 0, y: 32 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -24,29 +55,22 @@ function FeaturedTestimonial({ item }: { item: Testimonial }) {
       whileHover={reduceMotion ? undefined : { y: -3 }}
     >
       <div
-        className="relative overflow-hidden rounded-[2rem] border border-white/60 bg-surface/90 p-6 shadow-[var(--shadow-soft)] sm:p-8 lg:grid lg:grid-cols-2 lg:items-center lg:gap-10 lg:p-10"
+        className="grid h-full grid-cols-1 items-center gap-8 rounded-[2rem] border border-white/60 bg-surface/90 p-6 shadow-[var(--shadow-soft)] sm:p-8 md:grid-cols-[minmax(200px,280px)_minmax(0,1fr)] md:gap-8 lg:grid-cols-[minmax(220px,320px)_minmax(0,1fr)] lg:gap-10 lg:p-10"
       >
-        <TestimonialPortrait
-          image={item.image}
-          imagePosition={item.imagePosition}
-          alt={PORTRAIT_ALT}
-          variant="featured"
-        />
-        <div className="relative mt-8 lg:mt-0">
-          <span
-            className="pointer-events-none absolute -left-1 -top-8 font-serif text-[4rem] leading-none text-cobalt/20 select-none sm:text-5xl"
-            aria-hidden
-          >
-            &ldquo;
-          </span>
-          <blockquote className="relative text-[clamp(1.2rem,2.8vw,1.85rem)] font-medium leading-snug text-navy">
-            {item.quote}
-          </blockquote>
-          <footer className="mt-6 border-t border-border pt-5">
-            <p className="text-lg font-semibold text-ink">{item.name}</p>
-            <p className="mt-1 text-sm font-medium text-cobalt-deep">{item.role}</p>
-          </footer>
+        <div className="testimonial-image mx-auto w-full md:mx-0">
+          <TestimonialPortrait
+            image={item.image}
+            imagePosition={item.imagePosition}
+            alt={PORTRAIT_ALT}
+            variant="featured"
+          />
         </div>
+        <TestimonialContent
+          quote={item.quote}
+          name={item.name}
+          role={item.role}
+          featured
+        />
       </div>
     </motion.article>
   );
@@ -57,15 +81,17 @@ function SupportingTestimonial({ item, index }: { item: Testimonial; index: numb
 
   return (
     <motion.article
-      className="group flex h-full flex-col"
+      className="group h-full"
       initial={reduceMotion ? false : { opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5, delay: 0.12 + index * 0.06, ease }}
       whileHover={reduceMotion ? undefined : { y: -3 }}
     >
-      <div className="flex h-full flex-col gap-4 rounded-[1.5rem] border border-white/50 bg-surface/90 p-5 shadow-lg shadow-navy/8 sm:flex-row sm:items-stretch">
-        <div className="w-full shrink-0 sm:w-[140px] md:w-[160px]">
+      <div
+        className="grid h-full min-h-0 grid-cols-1 items-center gap-6 rounded-[1.5rem] border border-white/50 bg-surface/90 p-5 shadow-lg shadow-navy/8 md:grid-cols-[180px_minmax(0,1fr)] md:gap-7 md:p-6"
+      >
+        <div className="testimonial-image mx-auto w-full md:mx-0">
           <TestimonialPortrait
             image={item.image}
             imagePosition={item.imagePosition}
@@ -73,15 +99,7 @@ function SupportingTestimonial({ item, index }: { item: Testimonial; index: numb
             variant="supporting"
           />
         </div>
-        <div className="flex min-w-0 flex-1 flex-col justify-center">
-          <p className="text-sm leading-relaxed text-navy sm:text-base">
-            &ldquo;{item.quote}&rdquo;
-          </p>
-          <footer className="mt-4">
-            <p className="font-semibold text-ink">{item.name}</p>
-            <p className="text-sm text-ink-muted">{item.role}</p>
-          </footer>
-        </div>
+        <TestimonialContent quote={item.quote} name={item.name} role={item.role} />
       </div>
     </motion.article>
   );
@@ -139,7 +157,7 @@ export function TestimonialsSection() {
 
         <div className="mt-12 space-y-6 lg:space-y-8">
           <FeaturedTestimonial item={featured} />
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
+          <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 lg:gap-8">
             {rowA.map((item, i) => (
               <SupportingTestimonial key={item.id} item={item} index={i} />
             ))}
@@ -147,7 +165,7 @@ export function TestimonialsSection() {
           {rowB.length > 0 && (
             <div
               className={cn(
-                "grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8",
+                "grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 lg:gap-8",
                 rowB.length === 1 && "md:max-w-xl",
               )}
             >
