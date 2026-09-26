@@ -6,10 +6,10 @@ import { cn } from "@/lib/utils";
 import { motion, useReducedMotion } from "framer-motion";
 
 const toneClass: Record<HeroExpertCard["tone"], string> = {
-  white: "bg-surface/95 text-ink border-border shadow-md shadow-navy/8",
-  sky: "bg-canvas-sky/95 text-ink border-sky/30 shadow-md shadow-navy/6",
-  navy: "bg-navy/90 text-white border-navy",
-  cobalt: "bg-cobalt text-white border-cobalt-deep shadow-lg shadow-cobalt/25",
+  white: "bg-surface text-ink border-border shadow-md shadow-black/30",
+  sky: "bg-elevated text-ink border-border shadow-md shadow-black/25",
+  navy: "bg-canvas-sky text-ink border-border",
+  cobalt: "bg-cobalt text-on-accent border-cobalt-deep shadow-md shadow-black/35",
 };
 
 const FLOAT_DURATION = 5.2;
@@ -30,7 +30,7 @@ function ExpertCard({
       className={cn(
         "w-[148px] rounded-2xl border px-3.5 py-3 text-left sm:w-[156px]",
         toneClass[card.tone],
-        card.accent && "ring-2 ring-cobalt/20",
+        card.accent && "ring-1 ring-cobalt/50",
         className,
       )}
       style={{ rotate: `${card.rotate}deg` }}
@@ -72,11 +72,11 @@ export function ExpertConstellation() {
         className="pointer-events-none absolute inset-0 rounded-[2rem] opacity-60"
         style={{
           background:
-            "radial-gradient(ellipse 70% 60% at 50% 45%, rgba(147,197,253,0.35), transparent 70%)",
+            "radial-gradient(ellipse 70% 60% at 50% 45%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%)",
         }}
       />
       <svg
-        className="pointer-events-none absolute inset-0 mx-auto h-full w-[85%] text-cobalt/15"
+        className="pointer-events-none absolute inset-0 mx-auto h-full w-[85%] text-cobalt/25"
         viewBox="0 0 400 420"
         fill="none"
         preserveAspectRatio="xMidYMid meet"

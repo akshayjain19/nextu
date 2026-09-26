@@ -60,12 +60,14 @@ export function LeadForm() {
   return (
     <motion.div
       id="lead-form"
-      className="scroll-mt-28 rounded-2xl border border-white/60 bg-surface/95 p-4 shadow-[var(--shadow-soft)] backdrop-blur-md sm:p-5"
+      className="scroll-mt-28 rounded-2xl border border-border bg-surface p-4 shadow-[var(--shadow-card)] sm:p-5"
       initial={reduceMotion ? false : { opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.55, delay: 0.15 }}
     >
-      <h2 className="text-base font-semibold tracking-tight sm:text-lg">Find the right expert</h2>
+      <h2 className="font-editorial text-lg font-semibold tracking-tight text-ink sm:text-xl">
+        Find the right expert
+      </h2>
       <form
         className="mt-3.5 space-y-[1.125rem]"
         onSubmit={onSubmit}

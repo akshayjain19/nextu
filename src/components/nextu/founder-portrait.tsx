@@ -2,9 +2,9 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 const accentByCategory: Record<string, string> = {
-  Aviation: "from-sky-200/80 via-cobalt/30 to-navy/90",
-  Medicine: "from-teal-100/90 via-cobalt/25 to-navy/85",
-  Psychology: "from-indigo-100/80 via-sky-200/40 to-navy/88",
+  Aviation: "from-elevated via-cobalt/20 to-canvas",
+  Medicine: "from-surface via-cobalt/15 to-canvas-sky",
+  Psychology: "from-elevated via-cobalt/25 to-surface",
 };
 
 type FounderPortraitProps = {
@@ -29,7 +29,7 @@ export function FounderPortrait({
   return (
     <div
       className={cn(
-        "relative aspect-[4/5] w-full overflow-hidden rounded-[1.35rem] ring-1 ring-white/20 shadow-lg shadow-navy/20 transition-shadow duration-300 group-hover:shadow-cobalt/15",
+        "relative aspect-[4/5] w-full overflow-hidden rounded-[1.35rem] ring-1 ring-border shadow-lg shadow-black/30 transition-shadow duration-300 group-hover:shadow-cobalt/20",
         className,
       )}
     >
@@ -59,7 +59,7 @@ export function FounderPortrait({
         </div>
       )}
       <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/40 via-transparent to-transparent opacity-70"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-canvas/50 via-transparent to-transparent opacity-70"
         aria-hidden
       />
     </div>

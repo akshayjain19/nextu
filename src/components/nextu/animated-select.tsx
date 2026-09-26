@@ -47,12 +47,13 @@ export function AnimatedSelect({
       <motion.div
         className={cn(
           "relative rounded-2xl border bg-surface",
-          error ? "border-red-400/70" : focused || open ? "border-cobalt/40" : "border-border",
+          error ? "border-red-400/70" : focused || open ? "border-cobalt/55" : "border-border",
+          "bg-elevated/80",
         )}
         animate={
           reduceMotion
             ? undefined
-            : { boxShadow: focused || open ? "0 0 0 4px rgba(37, 99, 235, 0.1)" : "0 0 0 0px transparent" }
+            : { boxShadow: focused || open ? "0 0 0 4px var(--focus-ring)" : "0 0 0 0px transparent" }
         }
       >
         <button
@@ -105,8 +106,8 @@ export function AnimatedSelect({
                           key={opt.value}
                           type="button"
                           className={cn(
-                            "flex w-full items-start justify-between gap-2 rounded-xl px-3 py-2.5 text-left text-sm hover:bg-canvas-sky",
-                            value === opt.value && "bg-cobalt/10 text-cobalt-deep",
+                            "flex w-full items-start justify-between gap-2 rounded-xl px-3 py-2.5 text-left text-sm hover:bg-elevated",
+                            value === opt.value && "bg-cobalt/15 text-sky",
                           )}
                           onClick={() => {
                             onChange(opt.value, opt.label);
