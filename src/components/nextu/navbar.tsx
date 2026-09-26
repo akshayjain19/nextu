@@ -33,7 +33,7 @@ export function NextUNavbar() {
         <div className="mx-auto w-full max-w-[1100px] px-4 sm:px-6">
           <div
             className={cn(
-              "grid w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-3 rounded-full border px-3 py-2 sm:px-4 lg:grid-cols-[auto_1fr_auto] lg:gap-4 lg:px-5",
+              "grid w-full grid-cols-[auto_auto] items-center gap-3 rounded-full border px-3 py-2 sm:px-4 lg:grid-cols-[auto_1fr_auto] lg:gap-4 lg:px-5",
               scrolled
                 ? "border-border bg-surface/90 shadow-lg shadow-navy/5 backdrop-blur-md"
                 : "border-white/40 bg-surface/70 backdrop-blur-sm",
