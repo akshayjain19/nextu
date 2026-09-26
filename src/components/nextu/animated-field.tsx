@@ -17,13 +17,13 @@ function FieldShell({
   return (
     <motion.div
       className={cn(
-        "rounded-2xl border bg-surface transition-colors",
-        error ? "border-red-400/70" : focused ? "border-cobalt/40" : "border-border",
+        "rounded-2xl border bg-elevated/80 transition-colors",
+        error ? "border-red-400/70" : focused ? "border-cobalt/55" : "border-border",
       )}
       animate={
         reduceMotion
           ? undefined
-          : { boxShadow: focused ? "0 0 0 4px rgba(37, 99, 235, 0.1)" : "0 0 0 0px transparent" }
+          : { boxShadow: focused ? "0 0 0 4px var(--focus-ring)" : "0 0 0 0px transparent" }
       }
     >
       {children}
@@ -54,7 +54,10 @@ export function AnimatedInput({
       <FieldShell focused={focused} error={error}>
         <input
           id={fieldId}
-          className={cn("w-full rounded-2xl bg-transparent px-4 py-3 text-sm focus:outline-none", className)}
+          className={cn(
+            "w-full rounded-2xl bg-transparent px-4 py-3 text-sm text-ink placeholder:text-ink-soft focus:outline-none",
+            className,
+          )}
           onFocus={(e) => { setFocused(true); props.onFocus?.(e); }}
           onBlur={(e) => { setFocused(false); props.onBlur?.(e); }}
           {...props}

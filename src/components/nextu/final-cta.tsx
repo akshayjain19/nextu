@@ -5,9 +5,19 @@ import { trackEvent } from "@/lib/analytics";
 
 export function FinalCta() {
   return (
-    <section className="section-spacing relative overflow-hidden bg-gradient-to-b from-canvas-sky to-cobalt/10">
+    <section className="section-spacing relative overflow-hidden border-t border-border bg-canvas texture-grain">
+      <div
+        className="pointer-events-none absolute inset-0 opacity-40"
+        aria-hidden
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 50% at 50% 100%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 60%)",
+        }}
+      />
       <div className="relative mx-auto max-w-[1280px] px-5 text-center sm:px-8 lg:px-10">
-        <h2 className="text-4xl font-bold text-navy sm:text-5xl">Ready to take the next step?</h2>
+        <h2 className="font-editorial text-4xl font-semibold text-ink sm:text-5xl">
+          Ready to take the next step?
+        </h2>
         <p className="mx-auto mt-4 max-w-lg text-lg text-ink-muted">
           Tell us what you need. We&apos;ll find the right expert.
         </p>
@@ -18,7 +28,7 @@ export function FinalCta() {
         <button
           type="button"
           onClick={() => { trackEvent("hero_cta_clicked", { location: "final" }); scrollToLeadForm(); }}
-          className="mt-8 rounded-2xl bg-cobalt px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-cobalt/30 hover:bg-cobalt-deep"
+          className="mt-8 rounded-2xl bg-cobalt px-8 py-4 text-sm font-semibold text-on-accent shadow-md shadow-black/30 transition-colors hover:bg-sky"
         >
           Find My Expert →
         </button>
