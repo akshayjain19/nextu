@@ -12,7 +12,7 @@ export function NextUHero() {
 
   return (
     <section className="hero-blob relative overflow-x-clip pt-28 pb-10 lg:pb-16">
-      <div className="mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-10">
+      <div className="mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-10">
         <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-x-10 lg:gap-y-8">
           <div className="order-1 lg:col-span-5 lg:pt-4">
             <motion.p
