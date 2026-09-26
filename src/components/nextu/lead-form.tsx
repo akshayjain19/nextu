@@ -107,9 +107,6 @@ export function LeadForm() {
           <AnimatedButton type="submit" size="form" className="w-full sm:w-full">
             Continue on WhatsApp →
           </AnimatedButton>
-          <p className="mt-2 text-center text-[11px] text-ink-soft sm:text-left">
-            Opens WhatsApp with your request ready to send.
-          </p>
         </div>
       </form>
       <p className="mt-4 border-t border-border/60 pt-3 text-center text-xs text-ink-muted sm:text-left">

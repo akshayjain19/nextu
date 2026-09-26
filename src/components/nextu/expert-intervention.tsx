@@ -6,8 +6,8 @@ import { scrollToLeadForm } from "@/lib/scroll";
 import { cn } from "@/lib/utils";
 import { motion, useReducedMotion } from "framer-motion";
 
-const ART_AREA_HEIGHT = "h-[168px] sm:h-[176px]";
-const CONTENT_MIN_HEIGHT = "min-h-[5.5rem]";
+const ART_HEIGHT = "h-[172px] sm:h-[180px]";
+const CONTENT_MIN = "min-h-[5.75rem]";
 
 function ExpertWallCard({
   expert,
@@ -20,16 +20,13 @@ function ExpertWallCard({
 
   return (
     <motion.li
-      className={cn(
-        "group relative flex list-none flex-col overflow-hidden rounded-[1.35rem] border border-white/10 bg-gradient-to-br from-[#1a2d4a] to-[#0f1f38] shadow-xl shadow-black/20",
-        expert.widthClass,
-      )}
+      className="group relative flex h-full list-none flex-col overflow-hidden rounded-[1.35rem] border border-white/10 bg-gradient-to-br from-[#1a2d4a] to-[#0f1f38] shadow-xl shadow-black/20"
       initial={reduceMotion ? false : { opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{
         duration: 0.55,
-        delay: expert.size === "feature" ? 0 : 0.06 + index * 0.05,
+        delay: 0.04 + index * 0.04,
         ease: [0.22, 1, 0.36, 1],
       }}
       whileHover={
@@ -44,41 +41,22 @@ function ExpertWallCard({
       />
       <div
         className={cn(
-          "relative flex shrink-0 items-center justify-center px-3 pt-3",
-          ART_AREA_HEIGHT,
+          "relative flex shrink-0 items-center justify-center px-4 pt-3",
+          ART_HEIGHT,
         )}
       >
-        <motion.div
-          className="flex h-full w-full max-w-[220px] items-center justify-center"
-          animate={reduceMotion ? undefined : { y: [0, -4, 0] }}
-          transition={{
-            duration: 4 + index * 0.3,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        >
-          <ExpertPictogram
-            id={expert.id}
-            className="max-h-[85%] max-w-[80%] h-auto w-auto transition-transform duration-300 group-hover:scale-[1.03]"
-          />
-        </motion.div>
+        <ExpertPictogram
+          id={expert.id}
+          className="max-h-[85%] max-w-[82%] h-auto w-auto transition-transform duration-300 group-hover:scale-[1.03]"
+        />
       </div>
       <div
         className={cn(
-          "relative mt-auto border-t border-white/10 bg-[#0c1a3a]/60 px-4 py-3.5 backdrop-blur-sm sm:px-5 sm:py-4",
-          CONTENT_MIN_HEIGHT,
+          "mt-auto flex flex-1 flex-col border-t border-white/10 bg-[#0c1a3a]/60 px-4 py-3.5 backdrop-blur-sm sm:px-5 sm:py-4",
+          CONTENT_MIN,
         )}
       >
-        <p
-          className={cn(
-            "font-semibold leading-snug text-white transition-colors group-hover:text-sky",
-            expert.size === "feature"
-              ? "text-lg sm:text-xl"
-              : expert.size === "large"
-                ? "text-base sm:text-lg"
-                : "text-sm sm:text-base",
-          )}
-        >
+        <p className="font-semibold leading-snug text-white transition-colors group-hover:text-sky text-base sm:text-lg">
           {expert.label}
         </p>
         <p className="mt-1.5 text-xs leading-snug text-white/55 sm:text-sm">
@@ -142,7 +120,7 @@ export function ExpertIntervention() {
         </motion.header>
 
         <ul
-          className="mt-12 flex flex-wrap justify-center gap-3 sm:mt-14 sm:gap-4"
+          className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:mt-14"
           aria-label="Expert intervention categories"
         >
           {expertInterventionTypes.map((expert, i) => (

@@ -43,7 +43,7 @@ export function AnimatedSelect({
 
   return (
     <div ref={ref}>
-      <label className="mb-2 block text-sm font-medium">{label}</label>
+      <label className="mb-2.5 block text-left text-sm font-medium">{label}</label>
       <motion.div
         className={cn(
           "relative rounded-2xl border bg-surface",
@@ -58,12 +58,17 @@ export function AnimatedSelect({
         <button
           type="button"
           aria-expanded={open}
-          className="flex w-full items-center justify-between gap-2 px-4 py-3 text-left text-sm"
+          className="flex w-full min-h-[48px] items-center justify-between gap-2 px-4 py-3 text-left text-sm"
           onClick={() => setOpen((o) => !o)}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
         >
-          <span className={selected ? "text-ink" : "text-ink-soft"}>
+          <span
+            className={cn(
+              "min-w-0 flex-1 text-left leading-snug",
+              selected ? "text-ink" : "text-ink-soft",
+            )}
+          >
             {selected?.label ?? "Search or select an expert type..."}
           </span>
           <ChevronDown className={cn("size-4 transition-transform", open && "rotate-180")} />
@@ -100,7 +105,7 @@ export function AnimatedSelect({
                           key={opt.value}
                           type="button"
                           className={cn(
-                            "flex w-full items-center justify-between rounded-xl px-3 py-2 text-sm hover:bg-canvas-sky",
+                            "flex w-full items-start justify-between gap-2 rounded-xl px-3 py-2.5 text-left text-sm hover:bg-canvas-sky",
                             value === opt.value && "bg-cobalt/10 text-cobalt-deep",
                           )}
                           onClick={() => {

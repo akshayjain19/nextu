@@ -16,9 +16,9 @@ export function ExpertConstellation() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <div className="relative mx-auto aspect-[4/5] w-full max-w-md lg:max-w-none lg:aspect-auto lg:min-h-[520px]">
+    <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden lg:aspect-auto lg:min-h-[480px] lg:max-w-none">
       <div
-        className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-2xl border border-border bg-surface px-3 py-2 shadow-md lg:px-4"
+        className="absolute left-1/2 top-1/2 z-10 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-2xl border border-border bg-surface px-3 py-2 shadow-md lg:px-4"
       >
         <NextULogo href={null} variant="mark" className="max-h-12 max-w-[72px] lg:max-h-14 lg:max-w-[84px]" />
       </div>
@@ -26,12 +26,12 @@ export function ExpertConstellation() {
         <motion.div
           key={card.id}
           className={cn(
-            "absolute w-[42%] max-w-[160px] rounded-2xl border px-3 py-3 shadow-lg sm:w-[38%]",
+            "absolute w-[38%] max-w-[148px] rounded-2xl border px-2.5 py-2.5 text-left shadow-lg sm:w-[34%] sm:max-w-[152px] sm:px-3 sm:py-3",
             toneClass[card.tone],
           )}
           style={{
-            left: `${card.offset.x}%`,
-            top: `${card.offset.y}%`,
+            left: `${Math.min(Math.max(card.offset.x, 4), 58)}%`,
+            top: `${Math.min(Math.max(card.offset.y, 6), 62)}%`,
             rotate: `${card.rotate}deg`,
           }}
           initial={reduceMotion ? false : { opacity: 0, scale: 0.9, y: 16 }}
@@ -52,8 +52,8 @@ export function ExpertConstellation() {
           whileHover={reduceMotion ? undefined : { scale: 1.04, rotate: card.rotate + 2 }}
         >
           <span className="text-lg" aria-hidden>{card.icon}</span>
-          <p className="mt-1 text-sm font-semibold leading-tight">{card.title}</p>
-          <p className="text-[10px] uppercase tracking-wide opacity-70">{card.category}</p>
+          <p className="mt-1 text-left text-sm font-semibold leading-snug">{card.title}</p>
+          <p className="text-left text-[10px] uppercase tracking-wide opacity-70">{card.category}</p>
         </motion.div>
       ))}
     </div>

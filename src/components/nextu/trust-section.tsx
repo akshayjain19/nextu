@@ -2,21 +2,20 @@
 
 import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
-import {
-  motion,
-  useInView,
-  useReducedMotion,
-} from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 const DURATION_MS = 1750;
 
 function parseStatValue(value: string) {
-  const match = value.match(/^([\d,]+)(.*)$/);
-  if (!match) return { target: 0, suffix: "" };
+  const trimmed = value.trim();
+  const hasPlus = trimmed.endsWith("+");
+  const numericPart = hasPlus ? trimmed.slice(0, -1) : trimmed;
+  const target = Number.parseInt(numericPart.replace(/,/g, ""), 10);
+  const suffix = hasPlus ? "+" : trimmed.replace(/[\d,]/g, "");
   return {
-    target: Number.parseInt(match[1].replace(/,/g, ""), 10),
-    suffix: match[2] ?? "",
+    target: Number.isFinite(target) ? target : 0,
+    suffix,
   };
 }
 
@@ -37,11 +36,11 @@ type AnimatedStatProps = {
 
 function AnimatedStat({ value, label, enterDelay, countDelay }: AnimatedStatProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-15% 0px" });
+  const inView = useInView(ref, { once: true, amount: 0.35 });
   const reduceMotion = useReducedMotion();
   const { target, suffix } = parseStatValue(value);
-  const [count, setCount] = useState(() => (reduceMotion ? target : 0));
-  const [settled, setSettled] = useState(() => Boolean(reduceMotion));
+  const [count, setCount] = useState(0);
+  const [settled, setSettled] = useState(false);
 
   useEffect(() => {
     if (!inView || reduceMotion) return;
@@ -51,7 +50,8 @@ function AnimatedStat({ value, label, enterDelay, countDelay }: AnimatedStatProp
       const startAt = performance.now();
       const step = (now: number) => {
         const t = Math.min((now - startAt) / DURATION_MS, 1);
-        setCount(Math.round(easeOutCubic(t) * target));
+        const next = Math.round(easeOutCubic(t) * target);
+        setCount(next);
         if (t < 1) {
           raf = requestAnimationFrame(step);
         } else {
@@ -68,7 +68,9 @@ function AnimatedStat({ value, label, enterDelay, countDelay }: AnimatedStatProp
     };
   }, [inView, reduceMotion, target, countDelay]);
 
-  const display = `${formatCount(count)}${suffix}`;
+  const display = reduceMotion
+    ? `${formatCount(target)}${suffix}`
+    : `${formatCount(count)}${suffix}`;
 
   return (
     <motion.div
@@ -87,12 +89,12 @@ function AnimatedStat({ value, label, enterDelay, countDelay }: AnimatedStatProp
       <motion.p
         className={cn(
           "tabular-nums text-[clamp(3.25rem,10vw,6.5rem)] font-bold leading-none tracking-tight text-cobalt",
-          !settled && !reduceMotion && "opacity-90",
+          !settled && !reduceMotion && inView && "opacity-90",
         )}
         animate={
           settled && !reduceMotion
-            ? { scale: [1, 1.025, 1], filter: ["blur(0px)", "blur(0px)"] }
-            : !reduceMotion && inView
+            ? { scale: [1, 1.025, 1] }
+            : !reduceMotion && inView && count < target
               ? { filter: ["blur(3px)", "blur(0px)"] }
               : undefined
         }
@@ -101,7 +103,6 @@ function AnimatedStat({ value, label, enterDelay, countDelay }: AnimatedStatProp
             ? { duration: 0.45, ease: "easeOut" }
             : { duration: 0.35, delay: enterDelay }
         }
-        aria-hidden="true"
       >
         {display}
       </motion.p>

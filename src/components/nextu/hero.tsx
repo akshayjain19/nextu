@@ -11,7 +11,7 @@ export function NextUHero() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="hero-blob relative overflow-hidden pt-28 pb-10 lg:pb-16">
+    <section className="hero-blob relative overflow-x-clip pt-28 pb-10 lg:pb-16">
       <div className="mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-10">
         <div className="grid items-start gap-8 lg:grid-cols-12 lg:gap-8">
           <div className="order-1 lg:col-span-5 lg:pt-4">
