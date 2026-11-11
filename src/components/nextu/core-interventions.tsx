@@ -9,13 +9,13 @@ export function CoreInterventions() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section id="interventions" className="section-spacing scroll-mt-28">
+    <section id="interventions" className="section-spacing scroll-mt-28 bg-canvas">
       <div className="mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-10">
         <Reveal>
-          <p className="text-xs font-bold uppercase tracking-[0.22em] text-cobalt-deep">
+          <p className="text-xs font-bold uppercase tracking-[0.22em] text-cobalt">
             Life Design & Transformation
           </p>
-          <h2 className="mt-3 max-w-2xl text-4xl font-bold tracking-tight text-navy sm:text-5xl">
+          <h2 className="font-editorial mt-3 max-w-2xl text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
             Core interventions
           </h2>
           <p className="mt-4 max-w-xl text-ink-muted">
@@ -38,14 +38,14 @@ export function CoreInterventions() {
               <Reveal key={item.id} delay={i * 0.05} className={cn(span)}>
                 <motion.article
                   className={cn(
-                    "group h-full rounded-[1.5rem] border border-border bg-gradient-to-br from-surface to-canvas-sky/40 p-6 sm:p-7",
+                    "group h-full rounded-[1.5rem] border border-border bg-gradient-to-br from-surface to-elevated/80 p-6 sm:p-7",
                     item.layout === "large" && "lg:p-9",
                   )}
                   whileHover={reduceMotion ? undefined : { y: -4 }}
                 >
                   <div
                     className={cn(
-                      "mb-4 inline-flex items-center justify-center rounded-xl bg-cobalt/10 text-cobalt-deep",
+                      "mb-4 inline-flex items-center justify-center rounded-xl border border-cobalt/25 bg-cobalt/10 text-cobalt",
                       item.layout === "large" ? "size-14" : "size-11",
                     )}
                   >
@@ -53,7 +53,7 @@ export function CoreInterventions() {
                   </div>
                   <h3
                     className={cn(
-                      "font-semibold text-navy",
+                      "font-semibold text-ink",
                       item.layout === "large" ? "text-2xl" : "text-lg",
                     )}
                   >

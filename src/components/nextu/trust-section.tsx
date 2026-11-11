@@ -88,7 +88,7 @@ function AnimatedStat({ value, label, enterDelay, countDelay }: AnimatedStatProp
       />
       <motion.p
         className={cn(
-          "tabular-nums text-[clamp(3.25rem,10vw,6.5rem)] font-bold leading-none tracking-tight text-cobalt",
+          "font-editorial tabular-nums text-[clamp(3.25rem,10vw,6.5rem)] font-semibold leading-none tracking-tight text-sky",
           !settled && !reduceMotion && inView && "opacity-90",
         )}
         animate={
@@ -126,11 +126,11 @@ export function TrustSection() {
   return (
     <section
       ref={sectionRef}
-      className="section-spacing relative overflow-hidden bg-surface"
+      className="section-spacing relative overflow-hidden bg-canvas"
       aria-labelledby="trust-heading"
     >
       <motion.div
-        className="pointer-events-none absolute right-[10%] top-1/2 size-40 -translate-y-1/2 rounded-full bg-sky/25 blur-3xl"
+        className="pointer-events-none absolute right-[10%] top-1/2 size-40 -translate-y-1/2 rounded-full bg-cobalt/12 blur-3xl"
         aria-hidden
         animate={
           reduceMotion || !inView

@@ -16,14 +16,14 @@ export function NextUHero() {
         <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-x-10 lg:gap-y-8">
           <div className="order-1 lg:col-span-5 lg:pt-4">
             <motion.p
-              className="text-[11px] font-bold uppercase tracking-[0.28em] text-cobalt-deep"
+              className="text-[11px] font-bold uppercase tracking-[0.28em] text-cobalt"
               initial={reduceMotion ? false : { opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
             >
               {siteConfig.brandLine}
             </motion.p>
             <motion.h1
-              className="mt-4 text-[clamp(2.25rem,5.5vw,4.25rem)] font-bold leading-[1.02] tracking-[-0.03em] text-navy"
+              className="font-editorial mt-4 text-[clamp(2.25rem,5.5vw,4.25rem)] font-semibold leading-[1.02] tracking-[-0.02em] text-ink"
               initial={reduceMotion ? false : { opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -34,7 +34,7 @@ export function NextUHero() {
               <span className="relative inline-block">
                 <span className="relative z-10">right expert.</span>
                 <span
-                  className="absolute -inset-x-1 bottom-1 z-0 h-[0.45em] rounded-sm bg-sky/60"
+                  className="absolute -inset-x-1 bottom-1 z-0 h-[0.45em] rounded-sm bg-cobalt/35"
                   aria-hidden
                 />
               </span>
@@ -52,7 +52,7 @@ export function NextUHero() {
             </motion.p>
             <motion.button
               type="button"
-              className="mt-6 hidden rounded-2xl bg-cobalt px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-cobalt/20 hover:bg-cobalt-deep lg:inline-flex"
+              className="mt-6 hidden rounded-2xl bg-cobalt px-6 py-3 text-sm font-semibold text-on-accent shadow-md shadow-black/30 hover:bg-sky lg:inline-flex"
               onClick={() => {
                 trackEvent("hero_cta_clicked");
                 scrollToLeadForm();

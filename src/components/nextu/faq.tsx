@@ -12,10 +12,10 @@ import { Reveal } from "@/components/ui/reveal";
 
 export function FaqSection() {
   return (
-    <section id="faq" className="section-spacing scroll-mt-28 bg-canvas-sky/50">
+    <section id="faq" className="section-spacing scroll-mt-28 bg-canvas-sky">
       <div className="mx-auto max-w-3xl px-5 sm:px-8">
         <Reveal>
-          <h2 className="text-center text-3xl font-bold text-navy sm:text-4xl">FAQ</h2>
+          <h2 className="font-editorial text-center text-3xl font-semibold text-ink sm:text-4xl">FAQ</h2>
         </Reveal>
         <Accordion
           type="single"

@@ -3,10 +3,10 @@ import Link from "next/link";
 
 export function AboutSection() {
   return (
-    <section className="section-spacing">
+    <section className="section-spacing bg-elevated">
       <div className="mx-auto grid max-w-[1280px] gap-10 px-5 sm:px-8 lg:grid-cols-2 lg:px-10">
         <Reveal>
-          <h2 className="text-4xl font-bold tracking-tight text-navy sm:text-5xl">
+          <h2 className="font-editorial text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
             We believe finding the right support shouldn&apos;t be complicated.
           </h2>
         </Reveal>
@@ -23,7 +23,7 @@ export function AboutSection() {
             NextU helps make that first step simpler by connecting people with
             relevant experts—Life Design & Transformation in practice.
           </p>
-          <Link href="/about" className="mt-6 inline-block font-semibold text-cobalt hover:underline">
+          <Link href="/about" className="mt-6 inline-block font-semibold text-cobalt transition-colors hover:text-sky hover:underline">
             About NextU →
           </Link>
         </Reveal>

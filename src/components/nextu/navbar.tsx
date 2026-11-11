@@ -35,8 +35,8 @@ export function NextUNavbar() {
             className={cn(
               "grid w-full grid-cols-[auto_auto] items-center gap-3 rounded-full border px-3 py-2 sm:px-4 lg:grid-cols-[auto_1fr_auto] lg:gap-4 lg:px-5",
               scrolled
-                ? "border-border bg-surface/90 shadow-lg shadow-navy/5 backdrop-blur-md"
-                : "border-white/40 bg-surface/70 backdrop-blur-sm",
+                ? "border-border bg-canvas/95 shadow-lg shadow-black/40 backdrop-blur-md"
+                : "border-border/80 bg-canvas/85 backdrop-blur-sm",
             )}
           >
             <div className="flex shrink-0 items-center justify-self-start overflow-visible">
@@ -48,7 +48,7 @@ export function NextUNavbar() {
               aria-label="Primary"
             >
               {navLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="whitespace-nowrap hover:text-cobalt">
+                <Link key={link.href} href={link.href} className="whitespace-nowrap text-ink-muted transition-colors hover:text-sky">
                   {link.label}
                 </Link>
               ))}
@@ -58,7 +58,7 @@ export function NextUNavbar() {
               <button
                 type="button"
                 onClick={() => { trackEvent("hero_cta_clicked"); scrollToLeadForm(); }}
-                className="hidden rounded-full bg-cobalt px-4 py-2 text-xs font-semibold text-white hover:bg-cobalt-deep sm:text-sm lg:inline-flex"
+                className="hidden rounded-full bg-cobalt px-4 py-2 text-xs font-semibold text-on-accent transition-colors hover:bg-sky sm:text-sm lg:inline-flex"
               >
                 Find My Expert
               </button>
@@ -78,12 +78,12 @@ export function NextUNavbar() {
       <AnimatePresence>
         {open && (
           <motion.nav
-            className="fixed inset-0 z-40 flex flex-col bg-navy/95 px-6 pb-10 pt-6 text-white lg:hidden"
+            className="fixed inset-0 z-40 flex flex-col bg-canvas/98 px-6 pb-10 pt-6 text-ink lg:hidden"
             initial={reduceMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <div className="rounded-2xl bg-surface px-4 py-3">
+            <div className="rounded-2xl border border-border bg-surface px-4 py-3">
               <NextULogo href="/" context="nav" variant="full" />
             </div>
             <ul className="mt-10 space-y-6">
@@ -97,7 +97,7 @@ export function NextUNavbar() {
             </ul>
             <button
               type="button"
-              className="mt-auto w-full rounded-2xl bg-cobalt py-4 font-semibold"
+              className="mt-auto w-full rounded-2xl bg-cobalt py-4 font-semibold text-on-accent hover:bg-sky"
               onClick={() => { setOpen(false); scrollToLeadForm(); trackEvent("hero_cta_clicked"); }}
             >
               Find My Expert

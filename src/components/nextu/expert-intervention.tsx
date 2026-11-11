@@ -20,7 +20,7 @@ function ExpertWallCard({
 
   return (
     <motion.li
-      className="group relative flex h-full list-none flex-col overflow-hidden rounded-[1.35rem] border border-white/10 bg-gradient-to-br from-[#1a2d4a] to-[#0f1f38] shadow-xl shadow-black/20"
+      className="group relative flex h-full list-none flex-col overflow-hidden rounded-[1.35rem] border border-border bg-gradient-to-br from-elevated to-surface shadow-[var(--shadow-card)]"
       initial={reduceMotion ? false : { opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
@@ -36,7 +36,7 @@ function ExpertWallCard({
       }
     >
       <div
-        className="pointer-events-none absolute -right-8 -top-8 size-32 rounded-full bg-cobalt/20 blur-2xl"
+        className="pointer-events-none absolute -right-8 -top-8 size-32 rounded-full bg-cobalt/10 blur-2xl"
         aria-hidden
       />
       <div
@@ -52,14 +52,14 @@ function ExpertWallCard({
       </div>
       <div
         className={cn(
-          "mt-auto flex flex-1 flex-col border-t border-white/10 bg-[#0c1a3a]/60 px-4 py-3.5 backdrop-blur-sm sm:px-5 sm:py-4",
+          "mt-auto flex flex-1 flex-col border-t border-border bg-canvas/40 px-4 py-3.5 backdrop-blur-sm sm:px-5 sm:py-4",
           CONTENT_MIN,
         )}
       >
-        <p className="font-semibold leading-snug text-white transition-colors group-hover:text-sky text-base sm:text-lg">
+        <p className="font-semibold leading-snug text-ink transition-colors group-hover:text-sky text-base sm:text-lg">
           {expert.label}
         </p>
-        <p className="mt-1.5 text-xs leading-snug text-white/55 sm:text-sm">
+        <p className="mt-1.5 text-xs leading-snug text-ink-muted sm:text-sm">
           {expert.descriptor}
         </p>
       </div>
@@ -71,17 +71,17 @@ export function ExpertIntervention() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="section-spacing relative overflow-hidden bg-[#071222] text-white">
+    <section className="section-spacing relative overflow-hidden bg-elevated text-ink texture-grain">
       <div
-        className="pointer-events-none absolute inset-0 opacity-60"
+        className="pointer-events-none absolute inset-0 opacity-50"
         aria-hidden
         style={{
           background:
-            "radial-gradient(ellipse 80% 50% at 20% 0%, rgba(37,99,235,0.35), transparent 55%), radial-gradient(ellipse 60% 40% at 90% 80%, rgba(45,212,191,0.15), transparent 50%)",
+            "radial-gradient(ellipse 80% 50% at 20% 0%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 55%), radial-gradient(ellipse 60% 40% at 90% 80%, color-mix(in srgb, var(--accent-highlight) 8%, transparent), transparent 50%)",
         }}
       />
       <svg
-        className="pointer-events-none absolute left-0 top-1/4 h-2/3 w-full opacity-[0.12]"
+        className="pointer-events-none absolute left-0 top-1/4 h-2/3 w-full opacity-[0.14]"
         viewBox="0 0 1200 400"
         preserveAspectRatio="none"
         aria-hidden
@@ -89,8 +89,9 @@ export function ExpertIntervention() {
         <path
           d="M0 200 Q300 80 600 200 T1200 180"
           fill="none"
-          stroke="#7dd3fc"
-          strokeWidth="2"
+          stroke="currentColor"
+          className="text-cobalt"
+          strokeWidth="1.5"
           strokeDasharray="8 12"
         />
       </svg>
@@ -103,16 +104,16 @@ export function ExpertIntervention() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-sky/90">
+          <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-cobalt">
             Expert intervention
           </p>
-          <h2 className="mt-4 text-[clamp(2rem,5vw,3.75rem)] font-bold leading-[1.05] tracking-tight text-white">
+          <h2 className="font-editorial mt-4 text-[clamp(2rem,5vw,3.75rem)] font-semibold leading-[1.05] tracking-tight text-ink">
             Right support starts with the right expertise.
           </h2>
-          <p className="mt-6 text-lg text-white/80">
+          <p className="mt-6 text-lg text-ink-muted">
             Based on the plan, you work with experts such as:
           </p>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/55">
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink-soft">
             NextU understands your need, identifies the relevant area of support,
             and helps connect you with an appropriate expert—not as employees of
             NextU, but as independent professionals in our network.
@@ -137,7 +138,7 @@ export function ExpertIntervention() {
           <button
             type="button"
             onClick={scrollToLeadForm}
-            className="text-sm font-semibold text-sky hover:underline"
+            className="text-sm font-semibold text-cobalt transition-colors hover:text-sky"
           >
             Tell us what you need →
           </button>

@@ -26,10 +26,10 @@ export function HowItWorks() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section id="how-it-works" className="section-spacing scroll-mt-28 bg-canvas-sky">
+    <section id="how-it-works" className="section-spacing scroll-mt-28 bg-canvas-sky texture-grain">
       <div className="mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-10">
         <Reveal>
-          <h2 className="text-3xl font-bold text-navy sm:text-4xl">How it works</h2>
+          <h2 className="font-editorial text-3xl font-semibold text-ink sm:text-4xl">How it works</h2>
         </Reveal>
         <div className="relative mt-14">
           <div className="absolute left-8 top-0 hidden h-full w-px bg-cobalt/20 lg:left-1/2 lg:block" aria-hidden />
@@ -46,15 +46,15 @@ export function HowItWorks() {
                     className={cn("flex items-center gap-4", i % 2 === 1 && "lg:order-2 lg:justify-end")}
                     whileHover={reduceMotion ? undefined : { x: i % 2 ? -6 : 6 }}
                   >
-                    <span className="text-6xl font-bold text-cobalt/25 sm:text-7xl">{step.n}</span>
+                    <span className="font-editorial text-6xl font-semibold text-cobalt/35 sm:text-7xl">{step.n}</span>
                     <div className={i % 2 === 1 ? "lg:text-right" : ""}>
-                      <h3 className="text-2xl font-semibold text-navy">{step.title}</h3>
+                      <h3 className="text-2xl font-semibold text-ink">{step.title}</h3>
                       <p className="mt-2 max-w-md text-ink-muted">{step.copy}</p>
                     </div>
                   </motion.div>
                   <div
                     className={cn(
-                      "hidden h-20 rounded-3xl border border-dashed border-cobalt/25 bg-surface/60 lg:block",
+                      "hidden h-20 rounded-3xl border border-dashed border-cobalt/30 bg-surface/40 lg:block",
                       i % 2 === 1 && "lg:order-1",
                     )}
                     aria-hidden

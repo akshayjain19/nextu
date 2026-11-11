@@ -19,10 +19,10 @@ export default function AboutPage() {
         <div className="mx-auto max-w-3xl px-5 sm:px-8">
           <Reveal>
             <NextULogo href={null} className="mb-6 max-h-12" />
-            <p className="text-xs font-bold uppercase tracking-[0.22em] text-cobalt-deep">
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-cobalt">
               {siteConfig.brandLine}
             </p>
-            <h1 className="mt-4 text-4xl font-bold text-navy sm:text-5xl">
+            <h1 className="font-editorial mt-4 text-4xl font-semibold text-ink sm:text-5xl">
               We believe finding the right support shouldn&apos;t be complicated.
             </h1>
             <p className="mt-8 text-lg leading-relaxed text-ink-muted">

@@ -25,18 +25,18 @@ function TestimonialContent({
   return (
     <div className="testimonial-content min-w-0">
       {featured ? (
-        <blockquote className="text-[clamp(1.15rem,2.6vw,1.85rem)] font-medium leading-snug text-navy">
-          <span className="font-serif text-cobalt/25" aria-hidden>&ldquo;</span>
+        <blockquote className="font-editorial text-[clamp(1.15rem,2.6vw,1.85rem)] font-medium leading-snug text-ink">
+          <span className="font-serif text-cobalt/40" aria-hidden>&ldquo;</span>
           {quote}
         </blockquote>
       ) : (
-        <blockquote className="text-sm leading-relaxed text-navy sm:text-base">
+        <blockquote className="text-sm leading-relaxed text-ink sm:text-base">
           &ldquo;{quote}&rdquo;
         </blockquote>
       )}
       <footer className="testimonial-author mt-5 border-t border-border pt-4 sm:mt-6">
         <p className={cn("font-semibold text-ink", featured && "text-lg")}>{name}</p>
-        <p className="mt-1 text-sm font-medium text-cobalt-deep">{role}</p>
+        <p className="mt-1 text-sm font-medium text-cobalt">{role}</p>
       </footer>
     </div>
   );
@@ -55,7 +55,7 @@ function FeaturedTestimonial({ item }: { item: Testimonial }) {
       whileHover={reduceMotion ? undefined : { y: -3 }}
     >
       <div
-        className="grid h-full grid-cols-1 items-center gap-8 rounded-[2rem] border border-white/60 bg-surface/90 p-6 shadow-[var(--shadow-soft)] sm:p-8 md:grid-cols-[minmax(200px,280px)_minmax(0,1fr)] md:gap-8 lg:grid-cols-[minmax(220px,320px)_minmax(0,1fr)] lg:gap-10 lg:p-10"
+        className="grid h-full grid-cols-1 items-center gap-8 rounded-[2rem] border border-border bg-surface p-6 shadow-[var(--shadow-card)] sm:p-8 md:grid-cols-[minmax(200px,280px)_minmax(0,1fr)] md:gap-8 lg:grid-cols-[minmax(220px,320px)_minmax(0,1fr)] lg:gap-10 lg:p-10"
       >
         <div className="testimonial-image mx-auto w-full md:mx-0">
           <TestimonialPortrait
@@ -89,7 +89,7 @@ function SupportingTestimonial({ item, index }: { item: Testimonial; index: numb
       whileHover={reduceMotion ? undefined : { y: -3 }}
     >
       <div
-        className="grid h-full min-h-0 grid-cols-1 items-center gap-6 rounded-[1.5rem] border border-white/50 bg-surface/90 p-5 shadow-lg shadow-navy/8 md:grid-cols-[180px_minmax(0,1fr)] md:gap-7 md:p-6"
+        className="grid h-full min-h-0 grid-cols-1 items-center gap-6 rounded-[1.5rem] border border-border bg-surface p-5 shadow-[var(--shadow-card)] md:grid-cols-[180px_minmax(0,1fr)] md:gap-7 md:p-6"
       >
         <div className="testimonial-image mx-auto w-full md:mx-0">
           <TestimonialPortrait
@@ -115,11 +115,11 @@ export function TestimonialsSection() {
 
   return (
     <section
-      className="section-spacing relative overflow-hidden bg-gradient-to-b from-canvas-sky/50 via-[#f8fbff] to-surface"
+      className="section-spacing texture-grain relative overflow-hidden bg-cream text-on-cream"
       aria-labelledby="testimonials-heading"
     >
       <motion.div
-        className="pointer-events-none absolute -left-24 top-20 size-72 rounded-full bg-cobalt/12 blur-3xl"
+        className="pointer-events-none absolute -left-24 top-20 size-72 rounded-full bg-cobalt/20 blur-3xl"
         aria-hidden
         animate={reduceMotion ? undefined : { x: [0, 14, 0], opacity: [0.35, 0.5, 0.35] }}
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
@@ -127,7 +127,7 @@ export function TestimonialsSection() {
 
       <div className="relative mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-10">
         <motion.p
-          className="max-w-xl text-sm font-medium text-cobalt-deep sm:text-base"
+          className="max-w-xl text-sm font-medium text-on-cream-muted sm:text-base"
           initial={reduceMotion ? false : { opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -145,11 +145,11 @@ export function TestimonialsSection() {
         >
           <h2
             id="testimonials-heading"
-            className="text-[clamp(2rem,5vw,3.25rem)] font-bold tracking-tight text-navy"
+            className="font-editorial text-[clamp(2rem,5vw,3.25rem)] font-semibold tracking-tight text-on-cream"
           >
             People who&apos;ve taken the next step.
           </h2>
-          <p className="mt-4 text-lg text-ink-muted">
+          <p className="mt-4 text-lg text-on-cream-muted">
             Real experiences from people who&apos;ve connected with the right
             expertise through NextU.
           </p>

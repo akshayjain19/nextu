@@ -19,10 +19,10 @@ export function TestimonialPortrait({
   return (
     <div
       className={cn(
-        "relative shrink-0 overflow-hidden bg-canvas-sky ring-1 ring-navy/5 transition-shadow duration-300 group-hover:shadow-xl group-hover:shadow-cobalt/15",
+        "relative shrink-0 overflow-hidden bg-elevated ring-1 ring-border transition-shadow duration-300 group-hover:shadow-xl group-hover:shadow-black/30",
         variant === "featured"
-          ? "aspect-[4/5] w-full max-w-[280px] rounded-[2rem] shadow-xl shadow-navy/12 sm:max-w-[320px] lg:max-w-none"
-          : "aspect-[3/4] w-full max-w-[200px] rounded-[1.5rem] shadow-lg shadow-navy/10 md:w-[180px] md:max-w-[180px]",
+          ? "aspect-[4/5] w-full max-w-[280px] rounded-[2rem] shadow-xl shadow-black/25 sm:max-w-[320px] lg:max-w-none"
+          : "aspect-[3/4] w-full max-w-[200px] rounded-[1.5rem] shadow-lg shadow-black/20 md:w-[180px] md:max-w-[180px]",
         className,
       )}
     >
